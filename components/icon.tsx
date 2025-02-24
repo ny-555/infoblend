@@ -56,8 +56,8 @@ export const Icon = {
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 496 512"
-      width="22"
-      height="22"
+      width="30"
+      height="30"
       {...props}
     >
       <path
@@ -69,8 +69,8 @@ export const Icon = {
   google: ({ ...props }) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="22"
-      height="22"
+      width="30"
+      height="30"
       viewBox="0 0 48 48"
       className="mr-2"
       {...props}
