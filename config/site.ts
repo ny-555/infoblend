@@ -7,6 +7,6 @@ export const siteConfig: SiteConfig = {
   ogImage: "",
   links: {
     x: "https://x.com",
-    github: "https://github.com",
+    github: "https://github.com/ny-555/InfoBlend",
   },
 };
