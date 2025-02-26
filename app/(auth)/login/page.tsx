@@ -1,26 +1,21 @@
 import UserAuthForm from "@/components/user-auth-form";
-import Link from "next/link";
 
 export default function Login() {
   return (
     <div className="container mx-auto px-8 flex flex-col justify-center h-screen items-center w-screen">
-      <div className="w-full sm:w-[350px] flex flex-col space-y-6">
-        <div className="text-center space-y-2">
-          <h1 className="text-2xl font-semibold tracking-tight">
-            Welcome Back
+      <div className="w-full sm:w-[450px] flex flex-col space-y-6">
+        <div className="text-center space-y-4">
+          <h1 className="text-4xl font-bold tracking-tight">
+            ようこそ。
+            <br />
+            または、おかえりなさい。
           </h1>
-          <p className="text-sm text-muted-foreground">
-            メールアドレスを入力してログインできます。
+          <p className="text-lg text-muted-foreground">
+            GoogleまたはGitHubでログインできます。
           </p>
         </div>
 
         <UserAuthForm />
-
-        <p className="text-muted-foreground px-8 text-center text-sm">
-          <Link href={"/register"} className="underline underline-offset-2">
-            アカウントを持っていませんか？
-          </Link>
-        </p>
       </div>
     </div>
   );
