@@ -23,7 +23,7 @@ import {
 import { Icon } from "./icon";
 import Link from "next/link";
 import { useState } from "react";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
 interface PostOperationsProps {
@@ -39,10 +39,8 @@ async function deletePost(postId: string) {
     }
     return true;
   } catch {
-    toast({
-      title: "問題が発生しました。",
+    toast("問題が発生しました。", {
       description: "記事の削除ができませんでした。もう一度お試しください。",
-      variant: "destructive",
     });
   }
 }

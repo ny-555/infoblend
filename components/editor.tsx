@@ -14,7 +14,7 @@ import { Post } from "@prisma/client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { postPatchSchema, postPatchSchemaType } from "@/lib/validations/post";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Icon } from "./icon";
 
@@ -27,7 +27,6 @@ export default function Editor({ post }: EditorProps) {
   const router = useRouter();
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [isSaving, setIsSaving] = useState<boolean>(false);
-  const { toast } = useToast();
 
   const initializeEditor = useCallback(async () => {
     const body = postPatchSchema.parse(post);
@@ -88,17 +87,15 @@ export default function Editor({ post }: EditorProps) {
     setIsSaving(false);
 
     if (!response.ok) {
-      return toast({
-        title: "問題が発生しました。",
+      return toast("問題が発生しました。", {
         description:
           "あなたの記事は保存されませんでした。もう一度お試しください。",
-        variant: "destructive",
       });
     }
 
     router.refresh();
 
-    return toast({
+    return toast("成功！", {
       description: "正常に保存されました。",
     });
   };

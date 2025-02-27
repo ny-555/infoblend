@@ -24,7 +24,7 @@ export default async function EditorPage({ params }: EditorProps) {
   if (!user) {
     redirect("/login");
   }
-  const { postId } = await params;
+  const { postId } = params;
   const userId = user?.id;
   const edPostId = postId;
 
