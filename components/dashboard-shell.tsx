@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
 
-type DashBoardShellProps = React.HTMLAttributes<HTMLDivElement>;
+type DashboardShellProps = React.HTMLAttributes<HTMLDivElement>;
 
-export default function DashBoardShell({
+export default function DashboardShell({
   children,
   className,
   ...props
-}: DashBoardShellProps) {
+}: DashboardShellProps) {
   return (
     <div className={cn("grid items-center gap-8", className)} {...props}>
       {children}

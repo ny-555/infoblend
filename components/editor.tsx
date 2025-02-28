@@ -95,7 +95,7 @@ export default function Editor({ post }: EditorProps) {
 
     router.refresh();
 
-    return toast("成功！", {
+    return toast("成功", {
       description: "正常に保存されました。",
     });
   };

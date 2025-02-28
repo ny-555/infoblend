@@ -1,5 +1,5 @@
 import DashboardHeader from "@/components/dashboard-header";
-import DashBoardShell from "@/components/dashboard-shell";
+import DashboardShell from "@/components/dashboard-shell";
 import PostCreateButton from "@/components/post-create-button";
 import PostItem from "@/components/post-item";
 import { db } from "@/lib/db";
@@ -29,7 +29,7 @@ export default async function DashboardPage() {
   });
 
   return (
-    <DashBoardShell>
+    <DashboardShell>
       <DashboardHeader heading="記事投稿" text="記事の投稿と管理">
         <PostCreateButton />
       </DashboardHeader>
@@ -44,6 +44,6 @@ export default async function DashboardPage() {
           <div className="ml-2">投稿がありません。</div>
         )}
       </div>
-    </DashBoardShell>
+    </DashboardShell>
   );
 }
