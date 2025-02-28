@@ -7,16 +7,14 @@ export default function IndexPage() {
   return (
     <div className="space-y-10">
       <section className="container mx-auto px-8 pt-6 md:pt-10 lg:py-32 pb-8 md:pb-12">
-        <div className="container mx-auto text-center flex flex-col items-center gap-6 max-w-[64rem]">
+        <div className="container mx-auto text-center flex flex-col items-center gap-8 max-w-[64rem]">
           <Link
             href={siteConfig.links.x}
             className="bg-muted px-5 py-2 rounded-full font-medium text-sm"
           >
             Xをフォロー
           </Link>
-          <h1 className="font-extrabold text-6xl md:text-7xl lg:text-8xl">
-            InfoBlend
-          </h1>
+          <h1 className="font-extrabold text-8xl lg:text-9xl">InfoBlend</h1>
           <p className="text-muted-foreground sm:text-xl leading-normal max-w-[42rem]">
             このアプリケーションは管理者のブログ記事の閲覧ができます。
             <br />
