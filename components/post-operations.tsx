@@ -41,6 +41,7 @@ async function deletePost(postId: string) {
   } catch {
     toast("問題が発生しました。", {
       description: "記事の削除ができませんでした。もう一度お試しください。",
+      style: { background: "#b22222", color: "#fff" },
     });
   }
 }

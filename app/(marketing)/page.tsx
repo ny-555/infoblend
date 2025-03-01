@@ -1,3 +1,5 @@
+"use client";
+
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -109,7 +111,6 @@ export default function IndexPage() {
               </div>
             </div>
           </div>
-
           <div className="bg-background border p-2 rounded-lg">
             <div className="flex flex-col justify-center p-6 h-[180px]">
               <svg

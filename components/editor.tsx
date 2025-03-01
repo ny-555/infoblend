@@ -90,6 +90,7 @@ export default function Editor({ post }: EditorProps) {
       return toast("問題が発生しました。", {
         description:
           "あなたの記事は保存されませんでした。もう一度お試しください。",
+        style: { background: "#b22222", color: "#fff" },
       });
     }
 
@@ -97,6 +98,7 @@ export default function Editor({ post }: EditorProps) {
 
     return toast("成功", {
       description: "正常に保存されました。",
+      style: { background: "#008080", color: "#fff" },
     });
   };
 
