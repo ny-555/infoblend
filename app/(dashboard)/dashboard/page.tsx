@@ -30,7 +30,10 @@ export default async function DashboardPage() {
 
   return (
     <DashboardShell>
-      <DashboardHeader heading="記事投稿" text="記事の投稿と管理">
+      <DashboardHeader
+        heading="コメント一覧"
+        text="あなたのコメントを管理できます"
+      >
         <PostCreateButton />
       </DashboardHeader>
       <div>

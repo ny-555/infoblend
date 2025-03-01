@@ -55,11 +55,11 @@ export default function PostCreateButton({
       {...props}
     >
       {isLoading ? (
-        <Icon.spinner className="mr-2 h-4 w-4 animate-spin" />
+        <Icon.spinner className="h-2 w-2 animate-spin" />
       ) : (
-        <Icon.add className="mr-2 h-4 w-4" />
+        <Icon.add className="h-2 w-2" />
       )}
-      新しい投稿
+      コメント
     </button>
   );
 }

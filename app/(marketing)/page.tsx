@@ -6,16 +6,10 @@ import Link from "next/link";
 export default function IndexPage() {
   return (
     <div className="space-y-10">
-      <section className="container mx-auto px-8 pt-6 md:pt-10 lg:py-32 pb-8 md:pb-12">
+      <section className="container mx-auto px-8 pt-20 md:pt-24 lg:py-32 pb-8 md:pb-12">
         <div className="container mx-auto text-center flex flex-col items-center gap-8 max-w-[64rem]">
-          <Link
-            href={siteConfig.links.x}
-            className="bg-muted px-5 py-2 rounded-full font-medium text-sm"
-          >
-            Xをフォロー
-          </Link>
           <h1 className="font-extrabold text-8xl lg:text-9xl">InfoBlend</h1>
-          <p className="text-muted-foreground sm:text-xl leading-normal max-w-[42rem]">
+          <p className="text-muted-foreground text-lg md:text-xl leading-normal max-w-[42rem]">
             このアプリケーションは管理者のブログ記事の閲覧ができます。
             <br />
             ユーザーは自由にコメントをポストすることができます。
@@ -47,7 +41,7 @@ export default function IndexPage() {
           <h2 className="font-extrabold text-5xl lg:text-6xl">
             サービスの特徴
           </h2>
-          <p className="text-muted-foreground sm:text-lg sm:leading-7">
+          <p className="text-muted-foreground text-md md:text-lg sm:leading-7">
             このプロジェクトは以下の技術スタック、サービスを利用して作られています。
           </p>
         </div>
@@ -178,7 +172,7 @@ export default function IndexPage() {
           </div>
         </div>
         <div className="mx-auto text-center">
-          <p className="text-muted-foreground sm:text-lg sm:leading-7">
+          <p className="text-muted-foreground text-md md:text-lg sm:leading-7">
             Infoblendはログインするとコメントの投稿ができるようになります。
           </p>
         </div>
@@ -187,7 +181,7 @@ export default function IndexPage() {
       <section id="contact" className="container mx-auto p-8 md:py-12 lg:py-24">
         <div className="max-w-[58rem] mx-auto text-center flex flex-col gap-6">
           <h2 className="font-extrabold text-5xl lg:text-6xl">Contact Me</h2>
-          <p className="text-muted-foreground sm:text-lg sm:leading-7">
+          <p className="text-muted-foreground text-md md:text-lg sm:leading-7">
             ご連絡は以下のリンクよりお願いします。
           </p>
           <Link
