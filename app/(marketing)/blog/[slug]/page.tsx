@@ -1,7 +1,11 @@
 import { allPosts } from "@/.contentlayer/generated";
+import BlogEditor from "@/components/blog-editor";
 import Mdx from "@/components/mdx-component";
+import PostItem from "@/components/post-item";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
+import { db } from "@/lib/db";
+import { getCurrentUser } from "@/lib/session";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { Metadata } from "next";
@@ -54,11 +58,27 @@ export default async function PostPage({
 }) {
   const { slug } = params;
   const post = await getPostFromSlug(slug);
+  const user = await getCurrentUser();
 
   if (!post) {
     console.log("Post not found.");
     notFound();
   }
+
+  const posts = await db.post.findMany({
+    where: {
+      authorId: user?.id,
+    },
+    select: {
+      id: true,
+      title: true,
+      published: true,
+      createdAt: true,
+    },
+    orderBy: {
+      updatedAt: "desc",
+    },
+  });
 
   return (
     <article className="container mx-auto px-8 max-w-3xl py-6 lg:py-10">
@@ -80,6 +100,29 @@ export default async function PostPage({
         />
       )}
       <Mdx code={post.body.code} />
+      <hr className="mt-12" />
+      <div className="mt-12">
+        <h1 className="text-xl">コメント</h1>
+        {posts.length ? (
+          <div className="divide-y border rounded-md">
+            {posts.map((post) => (
+              <PostItem key={post.id} post={post} />
+            ))}
+          </div>
+        ) : (
+          <div className="ml-2">投稿がありません。</div>
+        )}
+      </div>
+      <hr className="my-12" />
+      <h1 className="text-xl">コメントを投稿しよう</h1>
+      <BlogEditor
+        post={{
+          id: post.id,
+          title: post.title,
+          content: post.content,
+          published: post.published,
+        }}
+      />
       <hr className="mt-12" />
       <div className="py-6 text-center lg:py-10">
         <Link
