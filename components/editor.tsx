@@ -87,19 +87,14 @@ export default function Editor({ post }: EditorProps) {
     setIsSaving(false);
 
     if (!response.ok) {
-      return toast("問題が発生しました。", {
-        description:
-          "あなたの記事は保存されませんでした。もう一度お試しください。",
-        style: { background: "#b22222", color: "#fff" },
+      return toast("<Error>コメントが投稿できませんでした。", {
+        style: { background: "#dc2626", color: "#fff" },
       });
     }
 
     router.refresh();
 
-    return toast("成功", {
-      description: "正常に保存されました。",
-      style: { background: "#008080", color: "#fff" },
-    });
+    return toast("コメントが投稿されました。");
   };
 
   return (
@@ -113,7 +108,9 @@ export default function Editor({ post }: EditorProps) {
             >
               戻る
             </Link>
-            <p className="text-sm text-muted-foreground">公開</p>
+            <p className="text-sm text-muted-foreground">
+              コメントは他のユーザに公開されます
+            </p>
           </div>
           <button className={cn(buttonVariants())} type="submit">
             {isSaving && <Icon.spinner className="w-4 h-4 mr-2 animate-spin" />}
@@ -125,7 +122,7 @@ export default function Editor({ post }: EditorProps) {
             id="title"
             autoFocus
             defaultValue={post.title}
-            placeholder="Post Title"
+            placeholder="タイトル"
             className="w-full resize-none overflow-hidden bg-transparent text-4xl focus:outline-none font-bold"
             {...register("title")}
           />

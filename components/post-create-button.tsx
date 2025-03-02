@@ -26,16 +26,15 @@ export default function PostCreateButton({
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: "Untitled Post",
+        title: "新しいコメント",
       }),
     });
 
     setIsLoading(false);
 
     if (!response.ok) {
-      return toast("問題が発生しました。", {
-        description: "投稿が作成されませんでした。もう一度お試しください。",
-        style: { background: "#b22222", color: "#fff" },
+      return toast("<Error>コメントが作成されませんでした。", {
+        style: { background: "#dc2626", color: "#fff" },
       });
     }
 
