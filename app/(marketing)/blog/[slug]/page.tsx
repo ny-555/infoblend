@@ -1,7 +1,9 @@
 import { allPosts } from "@/.contentlayer/generated";
 import Mdx from "@/components/mdx-component";
+import PostItem from "@/components/post-item";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
+import { db } from "@/lib/db";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { Metadata } from "next";
@@ -52,12 +54,29 @@ export default async function PostPage({
   params: { slug: string };
 }) {
   const slug = params.slug;
+  console.log(slug);
   const post = await getPostFromSlug(slug);
 
   if (!post) {
     console.log("Post not found.");
     notFound();
   }
+
+  const posts = await db.post.findMany({
+    where: {
+      blogId: slug,
+    },
+    select: {
+      id: true,
+      title: true,
+      blogId: true,
+      published: true,
+      createdAt: true,
+    },
+    orderBy: {
+      updatedAt: "desc",
+    },
+  });
 
   return (
     <article className="container mx-auto px-8 max-w-3xl py-6 lg:py-10">
@@ -79,6 +98,18 @@ export default async function PostPage({
         />
       )}
       <Mdx code={post.body.code} />
+      <hr className="mt-12" />
+      <div className="mt-12">
+        {posts.length ? (
+          <div className="divide-y border rounded-md">
+            {posts.map((post) => (
+              <PostItem key={post.id} post={post} />
+            ))}
+          </div>
+        ) : (
+          <div className="ml-2">投稿がありません。</div>
+        )}
+      </div>
       <hr className="mt-12" />
       <div className="py-6 text-center lg:py-10">
         <Link
