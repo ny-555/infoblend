@@ -31,6 +31,7 @@ export async function PATCH(
       },
       data: {
         title: body.title,
+        blogId: body.blogId,
         content: body.content,
       },
     });

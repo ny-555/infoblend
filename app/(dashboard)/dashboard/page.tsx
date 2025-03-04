@@ -20,6 +20,7 @@ export default async function DashboardPage() {
     select: {
       id: true,
       title: true,
+      blogId: true,
       published: true,
       createdAt: true,
     },

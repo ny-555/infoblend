@@ -6,6 +6,7 @@ import * as z from "zod";
 
 const postCreateSchema = z.object({
   title: z.string(),
+  blogId: z.string(),
   content: z.string().optional(),
 });
 
@@ -21,11 +22,12 @@ export async function POST(req: NextRequest) {
 
     const json = await req.json();
     const body = postCreateSchema.parse(json);
-    const { title, content } = body;
+    const { title, blogId, content } = body;
 
     const post = await db.post.create({
       data: {
         title,
+        blogId,
         content,
         authorId: user.id,
       },

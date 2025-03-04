@@ -19,7 +19,7 @@ import { useRouter } from "next/navigation";
 import { Icon } from "./icon";
 
 interface EditorProps {
-  post: Pick<Post, "id" | "title" | "content" | "published">;
+  post: Pick<Post, "id" | "title" | "blogId" | "content" | "published">;
 }
 
 export default function BlogEditor({ post }: EditorProps) {
@@ -80,6 +80,7 @@ export default function BlogEditor({ post }: EditorProps) {
       },
       body: JSON.stringify({
         title: data.title,
+        blogId: data.blogId,
         content: blocks,
       }),
     });
@@ -126,6 +127,15 @@ export default function BlogEditor({ post }: EditorProps) {
             className="w-full resize-none overflow-hidden bg-transparent text-4xl focus:outline-none font-bold"
             {...register("title")}
           />
+        </div>
+        <div>
+          <textarea
+            id="blogId"
+            defaultValue={post.blogId}
+            placeholder="ブログID"
+            className="w-full resize-none overflow-hidden bg-transparent text-4xl focus:outline-none font-bold"
+            {...register("blogId")}
+          ></textarea>
         </div>
         <div id="editor" className="min-h-[500px]" />
         <p className="text-sm text-gray-500">

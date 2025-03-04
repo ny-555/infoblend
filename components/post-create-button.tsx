@@ -27,6 +27,7 @@ export default function PostCreateButton({
       },
       body: JSON.stringify({
         title: "新しいコメント",
+        blogId: "this is blogId",
       }),
     });
 
