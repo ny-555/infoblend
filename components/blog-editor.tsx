@@ -36,7 +36,7 @@ export default function BlogEditor({ post }: EditorProps) {
       onReady() {
         ref.current = editor;
       },
-      placeholder: "ここにコメントを書く",
+      placeholder: "ここに記事を書く",
       inlineToolbar: true,
       data: body.content,
       tools: {
@@ -99,24 +99,42 @@ export default function BlogEditor({ post }: EditorProps) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="w-full border rounded-lg">
-        {/* <div className="w-[800px] mx-auto">
+      <div className="grid w-full gap-10">
+        <div className="flex w-full items-center justify-between">
+          <div className="flex items-center space-x-10">
+            <Link
+              href={"/dashboard"}
+              className={cn(buttonVariants({ variant: "ghost" }))}
+            >
+              戻る
+            </Link>
+            <p className="text-sm text-muted-foreground">
+              コメントは他のユーザに公開されます
+            </p>
+          </div>
+          <button className={cn(buttonVariants())} type="submit">
+            {isSaving && <Icon.spinner className="w-4 h-4 mr-2 animate-spin" />}
+            <span>保存</span>
+          </button>
+        </div>
+        <div className="w-[800px] mx-auto">
           <TextareaAutosize
-          id="title"
-          autoFocus
-          defaultValue={post.title}
-          placeholder="タイトル"
-          className="w-full resize-none overflow-hidden bg-transparent text-4xl focus:outline-none font-bold"
-          {...register("title")}
+            id="title"
+            autoFocus
+            defaultValue={post.title}
+            placeholder="タイトル"
+            className="w-full resize-none overflow-hidden bg-transparent text-4xl focus:outline-none font-bold"
+            {...register("title")}
           />
-          </div> */}
-        <div id="editor" className="min-h-[100px]" {...register("editor")} />
-      </div>
-      <div className="mt-2 flex justify-end">
-        <button className={cn(buttonVariants())} type="submit">
-          {isSaving && <Icon.spinner className="w-4 h-4 mr-2 animate-spin" />}
-          <span>保存</span>
-        </button>
+        </div>
+        <div id="editor" className="min-h-[500px]" />
+        <p className="text-sm text-gray-500">
+          Use
+          <kbd className="rounded-md border bg-muted px-1 text-xs uppercase">
+            Tab
+          </kbd>
+          to open the command menu
+        </p>
       </div>
     </form>
   );
