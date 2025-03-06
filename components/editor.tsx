@@ -36,7 +36,7 @@ export default function Editor({ post }: EditorProps) {
       onReady() {
         ref.current = editor;
       },
-      placeholder: "ここに記事を書く",
+      placeholder: "ここにコメントを書くことができます",
       inlineToolbar: true,
       data: body.content,
       tools: {
@@ -124,18 +124,18 @@ export default function Editor({ post }: EditorProps) {
             autoFocus
             defaultValue={post.title}
             placeholder="タイトル"
-            className="w-full resize-none overflow-hidden bg-transparent text-4xl focus:outline-none font-bold"
+            className="w-full resize-none overflow-hidden bg-transparent text-2xl focus:outline-none font-bold"
             {...register("title")}
           />
         </div>
-        <div>
-          <textarea
+        <div className="w-[800px] mx-auto">
+          <input
             id="blogId"
             defaultValue={post.blogId}
             placeholder="ブログID"
-            className="w-full resize-none overflow-hidden bg-transparent text-4xl focus:outline-none font-bold"
+            className="w-full resize-none overflow-hidden bg-transparent text-2xl focus:outline-none font-bold"
             {...register("blogId")}
-          ></textarea>
+          />
         </div>
         <div id="editor" className="min-h-[500px]" />
         <p className="text-sm text-gray-500">

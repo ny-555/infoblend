@@ -19,7 +19,7 @@ import { useRouter } from "next/navigation";
 import { Icon } from "./icon";
 
 interface EditorProps {
-  post: Pick<Post, "id" | "title" | "blogId" | "content" | "published">;
+  post: Pick<Post, "blogId">;
 }
 
 export default function BlogEditor({ post }: EditorProps) {
@@ -29,16 +29,13 @@ export default function BlogEditor({ post }: EditorProps) {
   const [isSaving, setIsSaving] = useState<boolean>(false);
 
   const initializeEditor = useCallback(async () => {
-    const body = postPatchSchema.parse(post);
-
     const editor = new EditorJS({
       holder: "editor",
       onReady() {
         ref.current = editor;
       },
-      placeholder: "ここに記事を書く",
+      placeholder: "ここにコメントを書く",
       inlineToolbar: true,
-      data: body.content,
       tools: {
         header: Header,
         LinkTool: LinkTool,
@@ -46,7 +43,7 @@ export default function BlogEditor({ post }: EditorProps) {
         code: Code,
       },
     });
-  }, [post]);
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -70,17 +67,18 @@ export default function BlogEditor({ post }: EditorProps) {
   });
 
   const onSubmit = async (data: postPatchSchemaType) => {
+    console.log("送信データ：", data);
     setIsSaving(true);
     const blocks = await ref.current?.save();
-
-    const response = await fetch(`/api/posts/${post.id}`, {
-      method: "PATCH",
+    console.log("blocks: ", blocks);
+    const response = await fetch(`/api/posts/`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         title: data.title,
-        blogId: data.blogId,
+        blogId: post.blogId,
         content: blocks,
       }),
     });
@@ -121,21 +119,19 @@ export default function BlogEditor({ post }: EditorProps) {
         <div className="w-[800px] mx-auto">
           <TextareaAutosize
             id="title"
-            autoFocus
-            defaultValue={post.title}
             placeholder="タイトル"
-            className="w-full resize-none overflow-hidden bg-transparent text-4xl focus:outline-none font-bold"
+            className="w-full resize-none overflow-hidden bg-transparent text-2xl focus:outline-none font-bold"
             {...register("title")}
           />
         </div>
-        <div>
-          <textarea
+        <div className="w-[800px] mx-auto">
+          <input
             id="blogId"
             defaultValue={post.blogId}
             placeholder="ブログID"
-            className="w-full resize-none overflow-hidden bg-transparent text-4xl focus:outline-none font-bold"
+            className="w-full resize-none overflow-hidden bg-transparent text-2xl focus:outline-none font-bold"
             {...register("blogId")}
-          ></textarea>
+          />
         </div>
         <div id="editor" className="min-h-[500px]" />
         <p className="text-sm text-gray-500">
