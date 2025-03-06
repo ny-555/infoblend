@@ -4,7 +4,7 @@ import Link from "next/link";
 import PostOperations from "./post-operations";
 
 interface PostItemProps {
-  post: Pick<Post, "id" | "title" | "blogId" | "published" | "createdAt">;
+  post: Pick<Post, "id" | "title" | "content" | "published" | "createdAt">;
 }
 
 export default function PostItem({ post }: PostItemProps) {
@@ -17,7 +17,7 @@ export default function PostItem({ post }: PostItemProps) {
         >
           {post.title}
           <br />
-          {post.blogId}
+          {}
         </Link>
 
         <div>

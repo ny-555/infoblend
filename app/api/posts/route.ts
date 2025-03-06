@@ -1,14 +1,9 @@
 import { authOptions } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { postPatchSchema } from "@/lib/validations/post";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
-import * as z from "zod";
-
-const postCreateSchema = z.object({
-  title: z.string(),
-  blogId: z.string(),
-  content: z.string().optional(),
-});
+import { z } from "zod";
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,30 +12,26 @@ export async function POST(req: NextRequest) {
     if (!session) {
       return NextResponse.json("Unauthorized", { status: 403 });
     }
-
     const { user } = session;
 
     const json = await req.json();
-    const body = postCreateSchema.parse(json);
-    const { title, blogId, content } = body;
+    const body = postPatchSchema.parse(json);
 
-    const post = await db.post.create({
+    await db.post.create({
       data: {
-        title,
-        blogId,
-        content,
+        title: body.title,
+        blogId: body.blogId,
+        content: body.content,
         authorId: user.id,
       },
-      select: {
-        id: true,
-      },
     });
-    return NextResponse.json(post);
-  } catch (err) {
-    if (err instanceof z.ZodError) {
-      return NextResponse.json(err.issues, { status: 422 });
-    }
 
-    return NextResponse.json(null, { status: 500 });
+    return NextResponse.json(null, { status: 200 });
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(error.issues, { status: 422 });
+    } else {
+      return NextResponse.json(null, { status: 500 });
+    }
   }
 }

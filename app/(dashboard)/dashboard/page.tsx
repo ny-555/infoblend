@@ -1,6 +1,5 @@
 import DashboardHeader from "@/components/dashboard-header";
 import DashboardShell from "@/components/dashboard-shell";
-import PostCreateButton from "@/components/post-create-button";
 import PostItem from "@/components/post-item";
 import { db } from "@/lib/db";
 import { getCurrentUser } from "@/lib/session";
@@ -35,7 +34,7 @@ export default async function DashboardPage() {
         heading="コメント一覧"
         text="あなたのコメントを管理できます"
       >
-        <PostCreateButton />
+        <p></p>
       </DashboardHeader>
       <div>
         {posts.length ? (
