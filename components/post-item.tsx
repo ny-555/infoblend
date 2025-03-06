@@ -1,25 +1,26 @@
 import { Post } from "@prisma/client";
 import { format } from "date-fns";
-import Link from "next/link";
 import PostOperations from "./post-operations";
+import edjsHTML from "editorjs-html";
+import { OutputData } from "@editorjs/editorjs";
 
 interface PostItemProps {
   post: Pick<Post, "id" | "title" | "content" | "published" | "createdAt">;
 }
 
 export default function PostItem({ post }: PostItemProps) {
+  const edjsParser = edjsHTML();
+  const htmlContent = post.content
+    ? edjsParser.parse(post.content as OutputData)
+    : "";
   return (
     <div className="flex items-center justify-between p-4">
-      <div className="grid gap-1">
-        <Link
-          href={`/editor/${post.id}`}
-          className="font-semibold hover:underline"
-        >
-          {post.title}
-          <br />
-          {}
-        </Link>
-
+      <div>
+        <div className="text-lg font-semibold">{post.title}</div>
+        <div
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+          className="prose"
+        />
         <div>
           <p className="text-sm text-muted-foreground">
             {format(post.createdAt, "yyyy-MM-dd")}

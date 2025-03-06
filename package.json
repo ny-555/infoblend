@@ -26,6 +26,7 @@
     "clsx": "^2.1.1",
     "contentlayer2": "^0.5.4",
     "date-fns": "^4.1.0",
+    "editorjs-html": "^4.0.5",
     "eslint-config-next": "^15.2.0",
     "lucide-react": "^0.475.0",
     "next": "^14.2.24",

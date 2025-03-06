@@ -13,7 +13,10 @@ import Code from "@editorjs/code";
 import { Post } from "@prisma/client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { postPatchSchema, postPatchSchemaType } from "@/lib/validations/post";
+import {
+  postUserEditorSchema,
+  postUserEditorSchemaType,
+} from "@/lib/validations/post";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Icon } from "./icon";
@@ -62,15 +65,14 @@ export default function BlogEditor({ post }: EditorProps) {
     };
   }, [isMounted, initializeEditor]);
 
-  const { register, handleSubmit } = useForm<postPatchSchemaType>({
-    resolver: zodResolver(postPatchSchema),
+  const { register, handleSubmit } = useForm<postUserEditorSchemaType>({
+    resolver: zodResolver(postUserEditorSchema),
   });
 
-  const onSubmit = async (data: postPatchSchemaType) => {
+  const onSubmit = async (data: postUserEditorSchemaType) => {
     console.log("送信データ：", data);
     setIsSaving(true);
     const blocks = await ref.current?.save();
-    console.log("blocks: ", blocks);
     const response = await fetch(`/api/posts/`, {
       method: "POST",
       headers: {
@@ -98,42 +100,16 @@ export default function BlogEditor({ post }: EditorProps) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="grid w-full gap-10">
-        <div className="flex w-full items-center justify-between">
-          <div className="flex items-center space-x-10">
-            <Link
-              href={"/dashboard"}
-              className={cn(buttonVariants({ variant: "ghost" }))}
-            >
-              戻る
-            </Link>
-            <p className="text-sm text-muted-foreground">
-              コメントは他のユーザに公開されます
-            </p>
-          </div>
-          <button className={cn(buttonVariants())} type="submit">
-            {isSaving && <Icon.spinner className="w-4 h-4 mr-2 animate-spin" />}
-            <span>保存</span>
-          </button>
-        </div>
-        <div className="w-[800px] mx-auto">
+      <div className="border rounded-lg p-8">
+        <div className="">
           <TextareaAutosize
             id="title"
             placeholder="タイトル"
-            className="w-full resize-none overflow-hidden bg-transparent text-2xl focus:outline-none font-bold"
+            className="w-full resize-none bg-transparent text-2xl focus:outline-none font-bold"
             {...register("title")}
           />
         </div>
-        <div className="w-[800px] mx-auto">
-          <input
-            id="blogId"
-            defaultValue={post.blogId}
-            placeholder="ブログID"
-            className="w-full resize-none overflow-hidden bg-transparent text-2xl focus:outline-none font-bold"
-            {...register("blogId")}
-          />
-        </div>
-        <div id="editor" className="min-h-[500px]" />
+        <div id="editor" className="min-h-[100px]" />
         <p className="text-sm text-gray-500">
           Use
           <kbd className="rounded-md border bg-muted px-1 text-xs uppercase">
@@ -141,6 +117,17 @@ export default function BlogEditor({ post }: EditorProps) {
           </kbd>
           to open the command menu
         </p>
+        <div className="flex items-center justify-between ">
+          <div className="flex items-center space-x-10">
+            <p className="text-sm text-muted-foreground">
+              コメントは他のユーザに公開されます
+            </p>
+          </div>
+          <button className={cn(buttonVariants())} type="submit">
+            {isSaving && <Icon.spinner className="w-4 h-4 mr-2 animate-spin" />}
+            <span>投稿</span>
+          </button>
+        </div>
       </div>
     </form>
   );

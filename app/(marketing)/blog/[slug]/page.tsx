@@ -70,6 +70,7 @@ export default async function PostPage({
     select: {
       id: true,
       title: true,
+      content: true,
       blogId: true,
       published: true,
       createdAt: true,
@@ -80,30 +81,31 @@ export default async function PostPage({
   });
 
   return (
-    <article className="container mx-auto px-8 max-w-3xl py-6 lg:py-10">
-      <div>
-        {post.date && (
-          <time>Published on {format(post.date, "yyyy/MM/dd")}</time>
+    <div className="container mx-auto px-8 space-y-10">
+      <article className="max-w-3xl py-6 lg:py-10">
+        <div>
+          {post.date && (
+            <time>Published on {format(post.date, "yyyy/MM/dd")}</time>
+          )}
+          <h1 className="mt-2 font-extrabold text-4xl lg:text-5xl leading-tight">
+            {post.title}
+          </h1>
+        </div>
+        {post.image && (
+          <Image
+            src={post.image}
+            alt={post.title}
+            width={720}
+            height={405}
+            className="my-8 border rounded-md bg-muted"
+          />
         )}
-        <h1 className="mt-2 font-extrabold text-4xl lg:text-5xl leading-tight">
-          {post.title}
-        </h1>
-      </div>
-      {post.image && (
-        <Image
-          src={post.image}
-          alt={post.title}
-          width={720}
-          height={405}
-          className="my-8 border rounded-md bg-muted"
-        />
-      )}
-      <Mdx code={post.body.code} />
-      <hr className="mt-12" />
+        <Mdx code={post.body.code} />
+        <hr className="mt-12" />
+      </article>
 
       {/* コメント一覧の表示 */}
-
-      <div className="mt-12">
+      <div>
         {posts.length ? (
           <div className="divide-y border rounded-md">
             {posts.map((post) => (
@@ -114,17 +116,16 @@ export default async function PostPage({
           <div className="ml-2">コメントがありません。</div>
         )}
       </div>
-      <hr className="mt-12" />
 
       {/* コメント投稿欄 */}
-
-      <BlogEditor
-        post={{
-          blogId: slug,
-        }}
-      />
-
-      <hr className="mt-12" />
+      <div>
+        <BlogEditor
+          post={{
+            blogId: slug,
+          }}
+        />
+      </div>
+      <hr />
       <div className="py-6 text-center lg:py-10">
         <Link
           href={"/blog"}
@@ -133,6 +134,6 @@ export default async function PostPage({
           全ての記事を見る
         </Link>
       </div>
-    </article>
+    </div>
   );
 }
