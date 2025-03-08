@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import TextareaAutosize from "react-textarea-autosize";
 import EditorJS from "@editorjs/editorjs";
@@ -70,7 +69,6 @@ export default function BlogEditor({ post }: EditorProps) {
   });
 
   const onSubmit = async (data: postUserEditorSchemaType) => {
-    console.log("送信データ：", data);
     setIsSaving(true);
     const blocks = await ref.current?.save();
     const response = await fetch(`/api/posts/`, {
@@ -100,7 +98,7 @@ export default function BlogEditor({ post }: EditorProps) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="border rounded-lg p-8">
+      <div className="border rounded-xl p-8">
         <div className="">
           <TextareaAutosize
             id="title"
@@ -109,7 +107,7 @@ export default function BlogEditor({ post }: EditorProps) {
             {...register("title")}
           />
         </div>
-        <div id="editor" className="min-h-[100px]" />
+        <div id="editor" />
         <p className="text-sm text-gray-500">
           Use
           <kbd className="rounded-md border bg-muted px-1 text-xs uppercase">

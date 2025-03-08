@@ -5,6 +5,7 @@ import PostItem from "@/components/post-item";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { db } from "@/lib/db";
+import { getCurrentUser } from "@/lib/session";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { Metadata } from "next";
@@ -57,6 +58,7 @@ export default async function PostPage({
   const slug = params.slug;
   console.log(slug);
   const post = await getPostFromSlug(slug);
+  const user = await getCurrentUser();
 
   if (!post) {
     console.log("Post not found.");
@@ -81,8 +83,8 @@ export default async function PostPage({
   });
 
   return (
-    <div className="container mx-auto px-8 space-y-10">
-      <article className="max-w-3xl py-6 lg:py-10">
+    <div className="space-y-10">
+      <article className="container mx-auto px-8 max-w-3xl py-6 lg:py-10">
         <div>
           {post.date && (
             <time>Published on {format(post.date, "yyyy/MM/dd")}</time>
@@ -97,17 +99,16 @@ export default async function PostPage({
             alt={post.title}
             width={720}
             height={405}
-            className="my-8 border rounded-md bg-muted"
+            className="my-8 border rounded-xl bg-muted"
           />
         )}
         <Mdx code={post.body.code} />
         <hr className="mt-12" />
       </article>
-
       {/* コメント一覧の表示 */}
-      <div>
+      <div className="container mx-auto px-8 max-w-3xl">
         {posts.length ? (
-          <div className="divide-y border rounded-md">
+          <div className="divide-y border rounded-xl">
             {posts.map((post) => (
               <PostItem key={post.id} post={post} />
             ))}
@@ -117,15 +118,26 @@ export default async function PostPage({
         )}
       </div>
 
-      {/* コメント投稿欄 */}
-      <div>
-        <BlogEditor
-          post={{
-            blogId: slug,
-          }}
-        />
+      <div className="container mx-auto px-8 max-w-3xl">
+        {user ? (
+          <BlogEditor
+            post={{
+              blogId: slug,
+            }}
+          />
+        ) : (
+          <div className="border rounded-xl p-4 space-y-4 text-center">
+            <p>ログインするとコメントできます。</p>
+            <Link
+              href={"/login"}
+              className={cn(buttonVariants({ variant: "secondary" }), "px-4")}
+            >
+              ログイン
+            </Link>
+          </div>
+        )}
       </div>
-      <hr />
+
       <div className="py-6 text-center lg:py-10">
         <Link
           href={"/blog"}

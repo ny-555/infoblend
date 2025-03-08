@@ -28,7 +28,7 @@ export default function BlogPage() {
                 alt={post.title}
                 width={800}
                 height={450}
-                className="rounded-md border bg-muted"
+                className="rounded-xl border bg-muted"
               />
             )}
             <h2 className="text-2xl font-extrabold">{post.title}</h2>

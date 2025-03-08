@@ -2,7 +2,6 @@ import { Post } from "@prisma/client";
 import { format } from "date-fns";
 import PostOperations from "./post-operations";
 import edjsHTML from "editorjs-html";
-import { OutputData } from "@editorjs/editorjs";
 
 interface PostItemProps {
   post: Pick<Post, "id" | "title" | "content" | "published" | "createdAt">;
@@ -10,9 +9,7 @@ interface PostItemProps {
 
 export default function PostItem({ post }: PostItemProps) {
   const edjsParser = edjsHTML();
-  const htmlContent = post.content
-    ? edjsParser.parse(post.content as OutputData)
-    : "";
+  const htmlContent = post.content ? edjsParser.parse(post.content) : "";
   return (
     <div className="flex items-center justify-between p-4">
       <div>

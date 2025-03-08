@@ -37,7 +37,7 @@ export default function IndexPage() {
 
       <section
         id="features"
-        className="container mx-auto p-8 md:py-12 lg:py-24 bg-slate-50 rounded-lg space-y-8"
+        className="container mx-auto p-8 md:py-12 lg:py-24 bg-slate-50 rounded-xl space-y-8"
       >
         <div className="mx-auto text-center space-y-8 max-w-[58rem]">
           <h2 className="font-extrabold text-5xl lg:text-6xl">
@@ -48,7 +48,7 @@ export default function IndexPage() {
           </p>
         </div>
         <div className="mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-[64rem]">
-          <div className="bg-background border p-2 rounded-lg">
+          <div className="bg-background border p-2 rounded-xl">
             <div className="flex flex-col justify-center p-6 h-[180px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ export default function IndexPage() {
               </div>
             </div>
           </div>
-          <div className="bg-background border p-2 rounded-lg">
+          <div className="bg-background border p-2 rounded-xl">
             <div className="flex flex-col justify-center p-6 h-[180px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@ export default function IndexPage() {
               </div>
             </div>
           </div>
-          <div className="bg-background border p-2 rounded-lg">
+          <div className="bg-background border p-2 rounded-xl">
             <div className="flex flex-col justify-center p-6 h-[180px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +111,7 @@ export default function IndexPage() {
               </div>
             </div>
           </div>
-          <div className="bg-background border p-2 rounded-lg">
+          <div className="bg-background border p-2 rounded-xl">
             <div className="flex flex-col justify-center p-6 h-[180px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +132,7 @@ export default function IndexPage() {
               </div>
             </div>
           </div>
-          <div className="bg-background border p-2 rounded-lg">
+          <div className="bg-background border p-2 rounded-xl">
             <div className="flex flex-col justify-center p-6 h-[180px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +150,7 @@ export default function IndexPage() {
               </div>
             </div>
           </div>
-          <div className="bg-background border p-2 rounded-lg">
+          <div className="bg-background border p-2 rounded-xl">
             <div className="flex flex-col justify-center p-6 h-[180px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

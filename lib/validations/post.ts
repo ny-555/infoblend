@@ -13,4 +13,4 @@ export const postUserEditorSchema = z.object({
   content: z.any().optional(),
 });
 
-export type postUserEditorSchemaType = z.infer<typeof postPatchSchema>;
+export type postUserEditorSchemaType = z.infer<typeof postUserEditorSchema>;

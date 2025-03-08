@@ -20,6 +20,7 @@ export default async function DashboardPage() {
       id: true,
       title: true,
       blogId: true,
+      content: true,
       published: true,
       createdAt: true,
     },
@@ -38,7 +39,7 @@ export default async function DashboardPage() {
       </DashboardHeader>
       <div>
         {posts.length ? (
-          <div className="divide-y border rounded-md">
+          <div className="divide-y border rounded-xl">
             {posts.map((post) => (
               <PostItem key={post.id} post={post} />
             ))}
