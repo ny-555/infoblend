@@ -64,7 +64,7 @@ export default function BlogEditor({ post }: EditorProps) {
     };
   }, [isMounted, initializeEditor]);
 
-  const { register, handleSubmit } = useForm<postUserEditorSchemaType>({
+  const { register, handleSubmit, reset } = useForm<postUserEditorSchemaType>({
     resolver: zodResolver(postUserEditorSchema),
   });
 
@@ -92,6 +92,8 @@ export default function BlogEditor({ post }: EditorProps) {
     }
 
     router.refresh();
+    ref.current?.clear();
+    reset();
 
     return toast("コメントが投稿されました。");
   };

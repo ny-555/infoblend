@@ -1,25 +1,29 @@
 import { format } from "date-fns";
 import PostOperations from "./post-operations";
 import edjsHTML from "editorjs-html";
+import { JsonValue } from "@prisma/client/runtime/library";
+import { OutputData } from "@editorjs/editorjs";
 
 interface PostItemProps {
   post: {
     id: string;
     title: string;
-    content: string;
+    content: JsonValue | null;
     blogId: string;
     authorId: string;
     published: boolean;
     createdAt: Date;
     author: {
-      name: string; // 追加
+      name: string | null;
     };
   };
 }
 
 export default function PostItem({ post }: PostItemProps) {
   const edjsParser = edjsHTML();
-  const htmlContent = post.content ? edjsParser.parse(post.content) : "";
+  const contentData = post.content as unknown as OutputData;
+  const htmlContent = edjsParser.parse(contentData);
+
   return (
     <div className="flex items-center justify-between p-4">
       <div>

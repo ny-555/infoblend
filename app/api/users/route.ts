@@ -10,7 +10,6 @@ const routeContextSchema = z.object({
 export async function PATCH(req: NextRequest) {
   try {
     const json = await req.json();
-    console.log("jsonデータ: ", json);
     const body = routeContextSchema.parse(json);
 
     await db.user.update({

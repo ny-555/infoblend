@@ -7,7 +7,6 @@ import { notFound, redirect } from "next/navigation";
 
 export default async function SettingsPage() {
   const user = await getCurrentUser();
-  console.log("pageコンポーネントでのuser: ", user);
 
   if (!user) {
     redirect("/login");

@@ -16,7 +16,6 @@ interface UserProps {
 }
 
 export default function UserEditor({ user }: UserProps) {
-  console.log("user-editorでのuser: ", user);
   const router = useRouter();
   const [isSaving, setIsSaving] = useState<boolean>(false);
 

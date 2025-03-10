@@ -56,12 +56,10 @@ export default async function PostPage({
   params: { slug: string };
 }) {
   const slug = params.slug;
-  console.log(slug);
   const post = await getPostFromSlug(slug);
   const user = await getCurrentUser();
 
   if (!post) {
-    console.log("Post not found.");
     notFound();
   }
 
@@ -72,7 +70,7 @@ export default async function PostPage({
     include: {
       author: {
         select: {
-          name: true, // ユーザーの名前を取得
+          name: true,
         },
       },
     },
