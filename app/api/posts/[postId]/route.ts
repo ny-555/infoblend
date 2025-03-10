@@ -1,6 +1,6 @@
 import { authOptions } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { postPatchSchema } from "@/lib/validations/post";
+import { postUserEditorSchema } from "@/lib/validations/post";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
@@ -23,7 +23,7 @@ export async function PATCH(
     }
 
     const json = await req.json();
-    const body = postPatchSchema.parse(json);
+    const body = postUserEditorSchema.parse(json);
 
     await db.post.update({
       where: {
@@ -31,7 +31,6 @@ export async function PATCH(
       },
       data: {
         title: body.title,
-        blogId: body.blogId,
         content: body.content,
       },
     });

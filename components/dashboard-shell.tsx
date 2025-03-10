@@ -8,7 +8,10 @@ export default function DashboardShell({
   ...props
 }: DashboardShellProps) {
   return (
-    <div className={cn("grid items-center gap-8", className)} {...props}>
+    <div
+      className={cn("container mx-auto px-8 space-y-6", className)}
+      {...props}
+    >
       {children}
     </div>
   );

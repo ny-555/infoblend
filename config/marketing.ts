@@ -20,3 +20,16 @@ export const marketingConfig: MarketingConfig = {
     },
   ],
 };
+
+export const subConfig: MarketingConfig = {
+  mainNav: [
+    {
+      title: "ブログ",
+      href: "/blog",
+    },
+    {
+      title: "ダッシュボード",
+      href: "/dashboard",
+    },
+  ],
+};

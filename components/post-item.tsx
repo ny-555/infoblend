@@ -1,10 +1,20 @@
-import { Post } from "@prisma/client";
 import { format } from "date-fns";
 import PostOperations from "./post-operations";
 import edjsHTML from "editorjs-html";
 
 interface PostItemProps {
-  post: Pick<Post, "id" | "title" | "content" | "published" | "createdAt">;
+  post: {
+    id: string;
+    title: string;
+    content: string;
+    blogId: string;
+    authorId: string;
+    published: boolean;
+    createdAt: Date;
+    author: {
+      name: string; // 追加
+    };
+  };
 }
 
 export default function PostItem({ post }: PostItemProps) {
@@ -13,6 +23,7 @@ export default function PostItem({ post }: PostItemProps) {
   return (
     <div className="flex items-center justify-between p-4">
       <div>
+        <div>{post.author.name}</div>
         <div className="text-lg font-semibold">{post.title}</div>
         <div
           dangerouslySetInnerHTML={{ __html: htmlContent }}

@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function SiteFooter() {
   return (
     <footer>
-      <div className="container mx-auto px-8 py-10 md:py-0 md:h-20">
+      <div className="container mx-auto px-8 py-10">
         <p className="text-center text-sm">
           Built by {""}
           <Link

@@ -3,9 +3,5 @@ export default function EditorLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="container mx-auto grid items-center gap-10 p-8">
-      {children}
-    </div>
-  );
+  return <div className="container mx-auto p-8">{children}</div>;
 }

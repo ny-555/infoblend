@@ -69,13 +69,12 @@ export default async function PostPage({
     where: {
       blogId: slug,
     },
-    select: {
-      id: true,
-      title: true,
-      content: true,
-      blogId: true,
-      published: true,
-      createdAt: true,
+    include: {
+      author: {
+        select: {
+          name: true, // ユーザーの名前を取得
+        },
+      },
     },
     orderBy: {
       updatedAt: "desc",
