@@ -71,6 +71,7 @@ export default async function PostPage({
       author: {
         select: {
           name: true,
+          image: true,
         },
       },
     },

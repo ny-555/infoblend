@@ -2,25 +2,22 @@ import DashboardHeader from "@/components/dashboard-header";
 import DashboardPostItem from "@/components/dashboard-post-item";
 import DashboardShell from "@/components/dashboard-shell";
 import { buttonVariants } from "@/components/ui/button";
+import { authOptions } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { getCurrentUser } from "@/lib/session";
 import { cn } from "@/lib/utils";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
-  const user = await getCurrentUser();
+  const session = await getServerSession(authOptions);
+  console.log(session);
 
-  if (!user) {
-    redirect("/login");
-  }
-
-  const userName = user.name;
+  const userName = session?.user.name;
 
   const posts = await db.post.findMany({
     where: {
-      authorId: user?.id,
+      authorId: session?.user.id,
     },
     select: {
       id: true,
@@ -45,9 +42,9 @@ export default async function DashboardPage() {
       <div className="border rounded-xl p-4 flex justify-between items-center">
         <div className="flex items-center gap-4">
           <div>
-            {typeof user.image === "string" ? (
+            {typeof session?.user.image === "string" ? (
               <Image
-                src={user.image}
+                src={session.user.image}
                 alt="profile"
                 width={50}
                 height={50}
@@ -68,6 +65,7 @@ export default async function DashboardPage() {
         </Link>
       </div>
       <div>
+        <p className="text-lg font-bold ml-2 mb-1">あなたのコメント</p>
         {posts.length ? (
           <div className="divide-y border rounded-xl">
             {posts.map((post) => (

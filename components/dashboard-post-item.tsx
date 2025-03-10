@@ -15,13 +15,11 @@ export default function DashboardPostItem({ post }: PostItemProps) {
   return (
     <div className="flex items-center justify-between p-4">
       <div>
-        <div>{post.blogId}</div>
-        <div className="text-md font-semibold">
-          <div
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
-            className="prose"
-          />
-        </div>
+        <div className="font-semibold">{`ブログ: ${post.blogId}`}</div>
+        <div
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+          className="prose"
+        />
         <div>
           <p className="text-sm text-muted-foreground">
             {format(post.createdAt, "yyyy-MM-dd")}

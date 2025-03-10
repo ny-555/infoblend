@@ -12,7 +12,7 @@ import { Icon } from "./icon";
 import { userPatchSchema, userPatchSchemaType } from "@/lib/validations/user";
 
 interface UserProps {
-  user: Pick<User, "email" | "name">;
+  user: Pick<User, "id" | "name">;
 }
 
 export default function UserEditor({ user }: UserProps) {
@@ -31,7 +31,7 @@ export default function UserEditor({ user }: UserProps) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: user.email,
+        id: user.id,
         name: data.name,
       }),
     });

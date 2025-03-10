@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 const routeContextSchema = z.object({
-  email: z.string(),
+  id: z.string(),
   name: z.string(),
 });
 
@@ -14,7 +14,7 @@ export async function PATCH(req: NextRequest) {
 
     await db.user.update({
       where: {
-        email: body.email,
+        id: body.id,
       },
       data: {
         name: body.name,
