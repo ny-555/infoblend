@@ -30,7 +30,6 @@ export async function PATCH(
         id: params.postId,
       },
       data: {
-        title: body.title,
         content: body.content,
       },
     });

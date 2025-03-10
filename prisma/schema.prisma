@@ -80,7 +80,6 @@ model VerificationRequest {
 
 model Post {
   id String @id @default(cuid())
-  title String
   content Json?
   blogId String
   published Boolean @default(false)

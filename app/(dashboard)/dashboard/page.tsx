@@ -24,7 +24,6 @@ export default async function DashboardPage() {
     },
     select: {
       id: true,
-      title: true,
       blogId: true,
       content: true,
       published: true,

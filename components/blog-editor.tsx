@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
-import TextareaAutosize from "react-textarea-autosize";
 import EditorJS from "@editorjs/editorjs";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Header from "@editorjs/header";
@@ -10,14 +9,7 @@ import LinkTool from "@editorjs/link";
 import List from "@editorjs/list";
 import Code from "@editorjs/code";
 import { Post } from "@prisma/client";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  postUserEditorSchema,
-  postUserEditorSchemaType,
-} from "@/lib/validations/post";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 import { Icon } from "./icon";
 
 interface EditorProps {
@@ -26,7 +18,6 @@ interface EditorProps {
 
 export default function BlogEditor({ post }: EditorProps) {
   const ref = useRef<EditorJS | undefined>(null);
-  const router = useRouter();
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [isSaving, setIsSaving] = useState<boolean>(false);
 
@@ -64,11 +55,7 @@ export default function BlogEditor({ post }: EditorProps) {
     };
   }, [isMounted, initializeEditor]);
 
-  const { register, handleSubmit, reset } = useForm<postUserEditorSchemaType>({
-    resolver: zodResolver(postUserEditorSchema),
-  });
-
-  const onSubmit = async (data: postUserEditorSchemaType) => {
+  const onSubmit = async () => {
     setIsSaving(true);
     const blocks = await ref.current?.save();
     const response = await fetch(`/api/posts/`, {
@@ -77,7 +64,6 @@ export default function BlogEditor({ post }: EditorProps) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: data.title,
         blogId: post.blogId,
         content: blocks,
       }),
@@ -91,24 +77,14 @@ export default function BlogEditor({ post }: EditorProps) {
       });
     }
 
-    router.refresh();
     ref.current?.clear();
-    reset();
 
     return toast("コメントが投稿されました。");
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={onSubmit}>
       <div className="border rounded-xl p-8">
-        <div className="">
-          <TextareaAutosize
-            id="title"
-            placeholder="タイトル"
-            className="w-full resize-none bg-transparent text-2xl focus:outline-none font-bold"
-            {...register("title")}
-          />
-        </div>
         <div id="editor" />
         <p className="text-sm text-gray-500">
           Use

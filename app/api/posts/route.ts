@@ -19,7 +19,6 @@ export async function POST(req: NextRequest) {
 
     await db.post.create({
       data: {
-        title: body.title,
         blogId: body.blogId,
         content: body.content,
         authorId: user.id,

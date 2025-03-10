@@ -7,7 +7,6 @@ import { OutputData } from "@editorjs/editorjs";
 interface PostItemProps {
   post: {
     id: string;
-    title: string;
     content: JsonValue | null;
     blogId: string;
     authorId: string;
@@ -28,7 +27,6 @@ export default function PostItem({ post }: PostItemProps) {
     <div className="flex items-center justify-between p-4">
       <div>
         <div>{post.author.name}</div>
-        <div className="text-lg font-semibold">{post.title}</div>
         <div
           dangerouslySetInnerHTML={{ __html: htmlContent }}
           className="prose"

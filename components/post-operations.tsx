@@ -27,7 +27,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
 interface PostOperationsProps {
-  post: Pick<Post, "id" | "title">;
+  post: Pick<Post, "id">;
 }
 
 async function deletePost(postId: string) {

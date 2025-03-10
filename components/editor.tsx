@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
-import TextareaAutosize from "react-textarea-autosize";
 import EditorJS from "@editorjs/editorjs";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Header from "@editorjs/header";
@@ -11,19 +10,13 @@ import LinkTool from "@editorjs/link";
 import List from "@editorjs/list";
 import Code from "@editorjs/code";
 import { Post } from "@prisma/client";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  postPatchSchema,
-  postUserEditorSchema,
-  postUserEditorSchemaType,
-} from "@/lib/validations/post";
+import { postPatchSchema } from "@/lib/validations/post";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Icon } from "./icon";
 
 interface EditorProps {
-  post: Pick<Post, "id" | "title" | "blogId" | "content" | "published">;
+  post: Pick<Post, "id" | "blogId" | "content" | "published">;
 }
 
 export default function Editor({ post }: EditorProps) {
@@ -69,11 +62,7 @@ export default function Editor({ post }: EditorProps) {
     };
   }, [isMounted, initializeEditor]);
 
-  const { register, handleSubmit } = useForm<postUserEditorSchemaType>({
-    resolver: zodResolver(postUserEditorSchema),
-  });
-
-  const onSubmit = async (data: postUserEditorSchemaType) => {
+  const onSubmit = async () => {
     setIsSaving(true);
     const blocks = await ref.current?.save();
 
@@ -83,7 +72,6 @@ export default function Editor({ post }: EditorProps) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: data.title,
         content: blocks,
       }),
     });
@@ -103,18 +91,8 @@ export default function Editor({ post }: EditorProps) {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={onSubmit}>
         <div className="border rounded-xl p-8 space-y-2">
-          <div className="w-[800px] mx-auto">
-            <TextareaAutosize
-              id="title"
-              autoFocus
-              defaultValue={post.title}
-              placeholder="タイトル"
-              className="w-full resize-none bg-transparent text-lg focus:outline-none font-bold"
-              {...register("title")}
-            />
-          </div>
           <div id="editor" className="min-h-[100px]" />
 
           <div className="flex items-center justify-between">
