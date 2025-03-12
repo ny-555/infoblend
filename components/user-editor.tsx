@@ -45,18 +45,18 @@ export default function UserEditor({ user }: UserProps) {
     }
 
     router.refresh();
-
     return toast("名前が変更されました。");
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex justify-between items-center w-full">
+      <div className="flex justify-between items-center w-full gap-4">
         <input
           id="name"
           placeholder="名前"
           defaultValue={user.name as string}
-          className="resize-none bg-transparent focus:outline-none font-bold"
+          autoFocus
+          className="resize-none bg-transparent focus:outline-none font-bold border rounded-md px-2"
           {...register("name")}
         />
         <button

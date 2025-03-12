@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import PostOperations from "./post-operations";
 import { OutputData } from "@editorjs/editorjs";
 import edjsHTML from "editorjs-html";
+import Link from "next/link";
 
 interface PostItemProps {
   post: Pick<Post, "id" | "content" | "blogId" | "published" | "createdAt">;
@@ -15,7 +16,10 @@ export default function DashboardPostItem({ post }: PostItemProps) {
   return (
     <div className="flex items-center justify-between p-4">
       <div>
-        <div className="font-semibold">{`ブログ: ${post.blogId}`}</div>
+        <Link
+          href={`/blog/${post.blogId}`}
+          className="font-semibold"
+        >{`ブログ: ${post.blogId}`}</Link>
         <div
           dangerouslySetInnerHTML={{ __html: htmlContent }}
           className="prose"

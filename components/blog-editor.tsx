@@ -77,8 +77,6 @@ export default function BlogEditor({ post }: EditorProps) {
       });
     }
 
-    ref.current?.clear();
-
     return toast("コメントが投稿されました。");
   };
 
@@ -86,13 +84,6 @@ export default function BlogEditor({ post }: EditorProps) {
     <form onSubmit={onSubmit}>
       <div className="border rounded-xl p-8">
         <div id="editor" />
-        <p className="text-sm text-gray-500">
-          Use
-          <kbd className="rounded-md border bg-muted px-1 text-xs uppercase">
-            Tab
-          </kbd>
-          to open the command menu
-        </p>
         <div className="flex items-center justify-between ">
           <div className="flex items-center space-x-10">
             <p className="text-sm text-muted-foreground">

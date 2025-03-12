@@ -11,8 +11,6 @@ import Link from "next/link";
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
-  console.log(session);
-
   const userName = session?.user.name;
 
   const posts = await db.post.findMany({

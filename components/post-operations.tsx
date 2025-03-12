@@ -37,6 +37,9 @@ async function deletePost(postId: string) {
     if (!response.ok) {
       throw new Error("Failed");
     }
+
+    toast("コメントを削除しました。");
+
     return true;
   } catch {
     toast("<Error>コメントの削除ができませんでした。", {

@@ -106,7 +106,7 @@ export default function Editor({ post }: EditorProps) {
                 href={"/dashboard"}
                 className={cn(buttonVariants({ variant: "secondary" }))}
               >
-                キャンセル
+                戻る
               </Link>
               <button className={cn(buttonVariants())} type="submit">
                 {isSaving && (
