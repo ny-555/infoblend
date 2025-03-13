@@ -79,7 +79,7 @@ export default function Editor({ post }: EditorProps) {
     setIsSaving(false);
 
     if (!response.ok) {
-      return toast("<Error>コメントが編集できませんでした。", {
+      return toast("<Error>コメントを編集できませんでした。", {
         style: { background: "#dc2626", color: "#fff" },
       });
     }

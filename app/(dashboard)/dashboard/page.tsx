@@ -49,7 +49,12 @@ export default async function DashboardPage() {
                 className="rounded-full"
               />
             ) : (
-              <p>画像がありません</p>
+              <Image
+                src="/images/avatars/default-profile.png"
+                alt="default-profile"
+                width={80}
+                height={80}
+              />
             )}
           </div>
           <p className="font-semibold">{userName}</p>

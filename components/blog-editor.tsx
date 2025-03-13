@@ -72,7 +72,7 @@ export default function BlogEditor({ post }: EditorProps) {
     setIsSaving(false);
 
     if (!response.ok) {
-      return toast("<Error>コメントが投稿できませんでした。", {
+      return toast("<Error>コメントを投稿できませんでした。", {
         style: { background: "#dc2626", color: "#fff" },
       });
     }

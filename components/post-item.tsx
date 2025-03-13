@@ -25,6 +25,7 @@ interface PostItemProps {
 export default async function PostItem({ post }: PostItemProps) {
   const session = await getServerSession(authOptions);
   const userId = session?.user.id;
+
   const edjsParser = edjsHTML();
   const contentData = post.content as unknown as OutputData;
   const htmlContent = edjsParser.parse(contentData);
@@ -33,13 +34,23 @@ export default async function PostItem({ post }: PostItemProps) {
     <div className="flex items-center justify-between p-4">
       <div>
         <div className="flex items-center gap-2">
-          <Image
-            src={post.author.image as string}
-            alt="profile"
-            width={30}
-            height={30}
-            className="rounded-full"
-          />
+          {post.author.image ? (
+            <Image
+              src={post.author.image as string}
+              alt="profile"
+              width={30}
+              height={30}
+              className="rounded-full"
+            />
+          ) : (
+            <Image
+              src="/images/avatars/default-profile.png"
+              alt="default-profile"
+              width={50}
+              height={50}
+            />
+          )}
+
           <div className="font-semibold">{post.author.name}</div>
           <p className="text-sm text-muted-foreground">
             {format(post.createdAt, "yyyy-MM-dd")}
