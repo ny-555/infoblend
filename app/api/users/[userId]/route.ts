@@ -1,6 +1,6 @@
-// import { authOptions } from "@/lib/auth";
+import { authOptions } from "@/lib/auth";
 import { db } from "@/lib/db";
-// import { getServerSession } from "next-auth";
+import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -16,20 +16,20 @@ export async function DELETE(
 ) {
   try {
     const { params } = routeContextSchema.parse(context);
-    console.log("paramsのデータ: ", params);
-    // if (!(await verifyCurrentUserHasAccessToPost(params.userId))) {
-    //   return NextResponse.json(null, { status: 403 });
-    // }
 
-    await db.account.deleteMany({
-      where: {
-        userId: params.userId,
-      },
-    });
+    if (!(await verifyCurrentUserHasAccessToUser(params.userId))) {
+      return NextResponse.json(null, { status: 403 });
+    }
 
     await db.post.deleteMany({
       where: {
         authorId: params.userId,
+      },
+    });
+
+    await db.account.deleteMany({
+      where: {
+        userId: params.userId,
       },
     });
 
@@ -49,13 +49,13 @@ export async function DELETE(
   }
 }
 
-// async function verifyCurrentUserHasAccessToPost(userId: string) {
-//   const session = await getServerSession(authOptions);
-//   const user = await db.user.findFirst({
-//     where: {
-//       id: userId,
-//     },
-//   });
+async function verifyCurrentUserHasAccessToUser(userId: string) {
+  const session = await getServerSession(authOptions);
+  const user = await db.user.findFirst({
+    where: {
+      id: userId,
+    },
+  });
 
-//   return session?.user.id === user?.id;
-// }
+  return session?.user.id === user?.id;
+}
