@@ -103,6 +103,7 @@ export default async function PostPage({
         <Mdx code={post.body.code} />
         <hr className="mt-12" />
       </article>
+
       {/* コメント一覧の表示 */}
       <div className="container mx-auto px-8 max-w-3xl">
         {posts.length ? (

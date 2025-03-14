@@ -185,14 +185,12 @@ export default function IndexPage() {
           <p className="text-muted-foreground text-md md:text-lg sm:leading-7">
             ご連絡は以下のリンクよりお願いします。
           </p>
-          <Link
-            href={siteConfig.links.x}
+          <a
+            href="mailto:nskw012345@gmail.com"
             className="text-lg underline underline-offset-4"
-            target="_blank"
-            rel="noreferrer"
           >
             MAIL
-          </Link>
+          </a>
         </div>
       </section>
     </div>

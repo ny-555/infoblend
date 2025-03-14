@@ -6,7 +6,6 @@ export const siteConfig: SiteConfig = {
   url: "http://localhost:3000",
   ogImage: "",
   links: {
-    x: "https://x.com",
     github: "https://github.com/ny-555/InfoBlend",
   },
 };

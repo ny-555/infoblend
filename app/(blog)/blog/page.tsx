@@ -11,7 +11,7 @@ export default function BlogPage() {
       <div>
         <div className="space-y-4">
           <h1 className="font-extrabold text-4xl lg:text-5xl">ブログ記事</h1>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground">
             開発者のブログの閲覧ができます。
             <br />
             MDXファイルをContentLayerで変換したものを掲載しています。

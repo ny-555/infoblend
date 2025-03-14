@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "prisma",
     "Vercel",
   ],
-  authors: [{ name: "Yuki", url: siteConfig.links.x }],
+  authors: [{ name: "Yuki", url: siteConfig.links.github }],
   metadataBase: new URL(siteConfig.url),
   openGraph: {
     type: "website",

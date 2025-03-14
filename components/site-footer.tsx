@@ -8,7 +8,7 @@ export default function SiteFooter() {
         <p className="text-center text-sm">
           Built by {""}
           <Link
-            href={siteConfig.links.x}
+            href={siteConfig.links.github}
             className="underline underline-offset-4 font-medium"
             target="_blank"
             rel="noreferrer"
