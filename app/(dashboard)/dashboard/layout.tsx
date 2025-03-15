@@ -2,7 +2,7 @@ import DashboardNav from "@/components/dashboard-nav";
 import MainHeader from "@/components/main-header";
 import SiteFooter from "@/components/site-footer";
 import { dashboardConfig } from "@/config/dashboard";
-import { subConfig } from "@/config/marketing";
+import { subConfig } from "@/config/main";
 
 export default function DashboardLayout({
   children,

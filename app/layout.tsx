@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { siteConfig } from "@/config/site";
 import { Toaster } from "@/components/ui/sonner";
+import { siteConfig } from "@/config/site";
 
 const fontNotoSansJP = Noto_Sans_JP({
   subsets: ["latin"],

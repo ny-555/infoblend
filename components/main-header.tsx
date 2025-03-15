@@ -1,4 +1,3 @@
-// import { marketingConfig } from "@/config/marketing";
 import MainNav from "./main-nav";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";

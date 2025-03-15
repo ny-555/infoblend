@@ -31,7 +31,7 @@ export default function BlogPage() {
                 className="rounded-xl border bg-muted"
               />
             )}
-            <h2 className="text-2xl font-extrabold">{post.title}</h2>
+            <h2 className="text-2xl font-bold">{post.title}</h2>
             {post.description && (
               <p className="text-muted-foreground">{post.description}</p>
             )}

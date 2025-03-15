@@ -1,6 +1,6 @@
-import { MarketingConfig } from "@/types";
+import { MainConfig } from "@/types";
 
-export const marketingConfig: MarketingConfig = {
+export const mainConfig: MainConfig = {
   mainNav: [
     {
       title: "特徴",
@@ -21,7 +21,7 @@ export const marketingConfig: MarketingConfig = {
   ],
 };
 
-export const subConfig: MarketingConfig = {
+export const subConfig: MainConfig = {
   mainNav: [
     {
       title: "ブログ",

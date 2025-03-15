@@ -16,7 +16,7 @@ export type SiteConfig = {
   };
 };
 
-export type MarketingConfig = {
+export type MainConfig = {
   mainNav: NavItem[];
 };
 

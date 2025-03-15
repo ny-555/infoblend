@@ -1,6 +1,12 @@
 "use client";
 
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { Post } from "@prisma/client";
+import { Icon } from "./icon";
+import { toast } from "sonner";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,12 +25,6 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-
-import { Icon } from "./icon";
-import Link from "next/link";
-import { useState } from "react";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 
 interface PostOperationsProps {
   post: Pick<Post, "id">;

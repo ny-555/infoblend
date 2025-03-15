@@ -1,17 +1,19 @@
-import { allPosts } from "@/.contentlayer/generated";
-import BlogEditor from "@/components/blog-editor";
-import Mdx from "@/components/mdx-component";
-import PostItem from "@/components/post-item";
-import { buttonVariants } from "@/components/ui/button";
-import { siteConfig } from "@/config/site";
-import { db } from "@/lib/db";
-import { getCurrentUser } from "@/lib/session";
-import { cn } from "@/lib/utils";
-import { format } from "date-fns";
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Image from "next/image";
+
+import { format } from "date-fns";
+import { db } from "@/lib/db";
+import { cn } from "@/lib/utils";
+import { getCurrentUser } from "@/lib/session";
+import { allPosts } from "@/.contentlayer/generated";
+import { siteConfig } from "@/config/site";
+
+import { buttonVariants } from "@/components/ui/button";
+import BlogPostItem from "@/components/blog-post-item";
+import BlogEditor from "@/components/blog-editor";
+import Mdx from "@/components/mdx-component";
 
 async function getPostFromSlug(slug: string) {
   const post = allPosts.find((post) => post.slugAsParams === slug);
@@ -109,14 +111,17 @@ export default async function PostPage({
         {posts.length ? (
           <div className="divide-y border rounded-xl">
             {posts.map((post) => (
-              <PostItem key={post.id} post={post} />
+              <BlogPostItem key={post.id} post={post} />
             ))}
           </div>
         ) : (
-          <div className="ml-2">コメントがありません。</div>
+          <div className="divide-y border rounded-xl px-6 py-4">
+            コメントがありません。
+          </div>
         )}
       </div>
 
+      {/* コメント投稿欄 */}
       <div className="container mx-auto px-8 max-w-3xl">
         {user ? (
           <BlogEditor
@@ -129,7 +134,7 @@ export default async function PostPage({
             <p>ログインするとコメントできます。</p>
             <Link
               href={"/login"}
-              className={cn(buttonVariants({ variant: "secondary" }), "px-4")}
+              className={cn(buttonVariants({ variant: "secondary" }))}
             >
               ログイン
             </Link>

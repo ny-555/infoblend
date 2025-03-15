@@ -1,13 +1,13 @@
-import { format } from "date-fns";
-import PostOperations from "./post-operations";
-import edjsHTML from "editorjs-html";
-import { JsonValue } from "@prisma/client/runtime/library";
-import { OutputData } from "@editorjs/editorjs";
 import Image from "next/image";
 import { getServerSession } from "next-auth";
+import { format } from "date-fns";
+import edjsHTML from "editorjs-html";
+import { OutputData } from "@editorjs/editorjs";
+import { JsonValue } from "@prisma/client/runtime/library";
+import PostOperations from "./post-operations";
 import { authOptions } from "@/lib/auth";
 
-interface PostItemProps {
+interface BlogPostItemProps {
   post: {
     id: string;
     content: JsonValue | null;
@@ -22,7 +22,7 @@ interface PostItemProps {
   };
 }
 
-export default async function PostItem({ post }: PostItemProps) {
+export default async function BlogPostItem({ post }: BlogPostItemProps) {
   const session = await getServerSession(authOptions);
   const userId = session?.user.id;
 

@@ -9,12 +9,12 @@ export default function IndexPage() {
   return (
     <div className="space-y-10">
       <section className="container mx-auto px-8 pt-20 md:pt-24 lg:py-32 pb-8 md:pb-12">
-        <div className="container mx-auto text-center flex flex-col items-center gap-8 max-w-[64rem]">
+        <div className="mx-auto text-center flex flex-col items-center gap-8 max-w-[64rem]">
           <h1 className="font-extrabold text-8xl lg:text-9xl">InfoBlend</h1>
           <p className="text-muted-foreground text-lg md:text-xl leading-normal max-w-[42rem]">
             このアプリケーションは管理者のブログ記事の閲覧ができます。
             <br />
-            ユーザーは自由にコメントをポストすることができます。
+            ユーザーは自由にコメントを投稿することができます。
           </p>
           <div className="space-x-4">
             <Link
@@ -64,7 +64,7 @@ export default function IndexPage() {
               <div className="space-y-2">
                 <h3 className="font-bold">Next.js</h3>
                 <p className="text-sm text-muted-foreground">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                  SSRやSSGを利用し表示速度を高速化、SEOを強化します。
                 </p>
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function IndexPage() {
               <div className="space-y-2">
                 <h3 className="font-bold">Tailwind CSS</h3>
                 <p className="text-sm text-muted-foreground">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                  ユーティリティクラスを利用し、オリジナリティの高いデザインを作成。
                 </p>
               </div>
             </div>
@@ -106,7 +106,7 @@ export default function IndexPage() {
               <div className="space-y-2">
                 <h3 className="font-bold">Shadcn/ui</h3>
                 <p className="text-sm text-muted-foreground">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                  柔軟性、カスタマイズ性に優れたUIコンポーネントを利用可能。
                 </p>
               </div>
             </div>
@@ -127,7 +127,7 @@ export default function IndexPage() {
               <div className="space-y-2">
                 <h3 className="font-bold">Prisma</h3>
                 <p className="text-sm text-muted-foreground">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing.
+                  データベースとのやり取り、クエリの生成などを効率化するORMツール。
                 </p>
               </div>
             </div>
@@ -145,7 +145,7 @@ export default function IndexPage() {
               <div className="space-y-2">
                 <h3 className="font-bold">NextAuth</h3>
                 <p className="text-sm text-muted-foreground">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                  Next.jsにおいて、認証やセッション管理を簡単に行うことが可能。
                 </p>
               </div>
             </div>
@@ -166,15 +166,15 @@ export default function IndexPage() {
               <div className="space-y-2">
                 <h3 className="font-bold">Supabase</h3>
                 <p className="text-sm text-muted-foreground">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing.
+                  PostgreSQLをベースにしたオープンソースのバックエンドサービス。
                 </p>
               </div>
             </div>
           </div>
         </div>
         <div className="mx-auto text-center">
-          <p className="text-muted-foreground text-md md:text-lg sm:leading-7">
-            Infoblendはログインするとコメントの投稿ができるようになります。
+          <p className="text-muted-foreground md:text-lg sm:leading-7">
+            InfoBlendはログインするとコメントの投稿ができるようになります。
           </p>
         </div>
       </section>

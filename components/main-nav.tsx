@@ -1,8 +1,8 @@
 "use client";
 
+import { ReactNode, useState } from "react";
 import { NavItem } from "@/types";
 import Link from "next/link";
-import { ReactNode, useState } from "react";
 import MobileNav from "./mobile-nav";
 
 interface MainNavProps {

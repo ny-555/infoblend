@@ -1,15 +1,15 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "./ui/button";
 import EditorJS from "@editorjs/editorjs";
 import { useCallback, useEffect, useRef, useState } from "react";
-import Header from "@editorjs/header";
-import LinkTool from "@editorjs/link";
-import List from "@editorjs/list";
-import Code from "@editorjs/code";
+
+import { cn } from "@/lib/utils";
 import { Post } from "@prisma/client";
+import List from "@editorjs/list";
+import LinkTool from "@editorjs/link";
+import Code from "@editorjs/code";
 import { toast } from "sonner";
+import { buttonVariants } from "./ui/button";
 import { Icon } from "./icon";
 
 interface EditorProps {
@@ -30,9 +30,8 @@ export default function BlogEditor({ post }: EditorProps) {
       placeholder: "ここにコメントを書く",
       inlineToolbar: true,
       tools: {
-        header: Header,
-        LinkTool: LinkTool,
         list: List,
+        LinkTool: LinkTool,
         code: Code,
       },
     });
@@ -77,7 +76,7 @@ export default function BlogEditor({ post }: EditorProps) {
       });
     }
 
-    return toast("コメントが投稿されました。");
+    return toast("コメントを投稿しました。");
   };
 
   return (

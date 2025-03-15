@@ -1,6 +1,6 @@
-import { siteConfig } from "@/config/site";
-import { NavItem } from "@/types";
 import Link from "next/link";
+import { NavItem } from "@/types";
+import { siteConfig } from "@/config/site";
 
 interface MobileNavProps {
   items: NavItem[];
