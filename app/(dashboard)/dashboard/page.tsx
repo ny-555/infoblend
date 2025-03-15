@@ -1,13 +1,13 @@
-import DashboardHeader from "@/components/dashboard-header";
-import DashboardPostItem from "@/components/dashboard-post-item";
-import DashboardShell from "@/components/dashboard-shell";
-import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
+import Image from "next/image";
+import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { cn } from "@/lib/utils";
-import { getServerSession } from "next-auth";
-import Image from "next/image";
-import Link from "next/link";
+import DashboardShell from "@/components/dashboard-shell";
+import DashboardHeader from "@/components/dashboard-header";
+import DashboardPostItem from "@/components/dashboard-post-item";
+import { buttonVariants } from "@/components/ui/button";
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
@@ -33,7 +33,7 @@ export default async function DashboardPage() {
     <DashboardShell>
       <DashboardHeader
         heading="ダッシュボード"
-        text="あなたのプロフィールやコメントを管理できます。"
+        text="あなたのアカウントやコメントを管理できます。"
       >
         <></>
       </DashboardHeader>
@@ -68,7 +68,7 @@ export default async function DashboardPage() {
         </Link>
       </div>
       <div>
-        <p className="text-lg font-bold ml-2 mb-1">あなたのコメント</p>
+        <p className="text-lg font-semibold ml-2 mb-1">あなたのコメント</p>
         {posts.length ? (
           <div className="divide-y border rounded-xl">
             {posts.map((post) => (

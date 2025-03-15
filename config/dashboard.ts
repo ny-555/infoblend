@@ -1,17 +1,6 @@
 import { DashboardConfig } from "@/types";
 
 export const dashboardConfig: DashboardConfig = {
-  mainNav: [
-    {
-      title: "ドキュメント",
-      href: "/docs",
-    },
-    {
-      title: "サポート",
-      href: "/support",
-      disabled: true,
-    },
-  ],
   sidebarNav: [
     {
       title: "記事投稿",

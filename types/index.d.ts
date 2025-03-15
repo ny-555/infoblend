@@ -37,6 +37,5 @@ export type SidebarNavItem = {
 );
 
 export type DashboardConfig = {
-  mainNav: NavItem[];
   sidebarNav: SidebarNavItem[];
 };

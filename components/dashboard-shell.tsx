@@ -8,10 +8,7 @@ export default function DashboardShell({
   ...props
 }: DashboardShellProps) {
   return (
-    <div
-      className={cn("container mx-auto px-8 space-y-6", className)}
-      {...props}
-    >
+    <div className={cn("space-y-6", className)} {...props}>
       {children}
     </div>
   );
