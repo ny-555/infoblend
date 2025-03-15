@@ -1,14 +1,11 @@
-import DashboardHeader from "@/components/dashboard-header";
-import DashboardShell from "@/components/dashboard-shell";
-import UserDelete from "@/components/user-delete";
-// import { buttonVariants } from "@/components/ui/button";
-import UserEditor from "@/components/user-editor";
-import { authOptions } from "@/lib/auth";
-// import { cn } from "@/lib/utils";
-import { getServerSession } from "next-auth";
-// import { signOut } from "next-auth/react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import DashboardShell from "@/components/dashboard-shell";
+import DashboardHeader from "@/components/dashboard-header";
+import UserDelete from "@/components/user-delete";
+import UserEditor from "@/components/user-editor";
 
 export default async function SettingsPage() {
   const session = await getServerSession(authOptions);
@@ -23,8 +20,8 @@ export default async function SettingsPage() {
         <></>
       </DashboardHeader>
       <div>
-        <h1 className="text-lg font-semibold">ユーザー名の編集</h1>
-        <div className="flex items-center justify-between gap-3 p-4 border rounded-xl max-w-md">
+        <h1 className="font-semibold">ユーザー名の編集</h1>
+        <div className="flex items-center justify-between p-4 border rounded-xl max-w-md">
           <div>
             {typeof session?.user.image === "string" ? (
               <Image
@@ -53,7 +50,7 @@ export default async function SettingsPage() {
       </div>
 
       <div>
-        <h1 className="text-lg font-semibold">アカウントの削除</h1>
+        <h1 className="font-semibold">アカウントの削除</h1>
         <div className="flex items-center justify-between gap-3 p-4 border rounded-xl max-w-md">
           アカウントを削除しますか？
           <UserDelete user={session.user} />

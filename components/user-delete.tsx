@@ -1,11 +1,12 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { signOut } from "next-auth/react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
 import { User } from "@prisma/client";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,7 +18,6 @@ import {
   AlertDialogTitle,
 } from "./ui/alert-dialog";
 import { Icon } from "./icon";
-import { signOut } from "next-auth/react";
 
 interface UserDeleteProps {
   user: Pick<User, "id">;

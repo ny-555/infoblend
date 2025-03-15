@@ -17,12 +17,13 @@ export default async function DashboardPage() {
     where: {
       authorId: session?.user.id,
     },
-    select: {
-      id: true,
-      blogId: true,
-      content: true,
-      published: true,
-      createdAt: true,
+    include: {
+      author: {
+        select: {
+          name: true,
+          image: true,
+        },
+      },
     },
     orderBy: {
       updatedAt: "desc",
@@ -76,7 +77,7 @@ export default async function DashboardPage() {
             ))}
           </div>
         ) : (
-          <div className="ml-2">投稿がありません。</div>
+          <div className="border rounded-xl p-4">投稿がありません。</div>
         )}
       </div>
     </DashboardShell>

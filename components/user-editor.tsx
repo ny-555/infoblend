@@ -1,15 +1,15 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
-import { useState } from "react";
 import { User } from "@prisma/client";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
-import { Icon } from "./icon";
 import { userPatchSchema, userPatchSchemaType } from "@/lib/validations/user";
+import { toast } from "sonner";
+import { Icon } from "./icon";
 
 interface UserProps {
   user: Pick<User, "id" | "name">;
@@ -25,13 +25,12 @@ export default function UserEditor({ user }: UserProps) {
 
   const onSubmit = async (data: userPatchSchemaType) => {
     setIsSaving(true);
-    const response = await fetch(`/api/users/`, {
+    const response = await fetch(`/api/users/${user.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: user.id,
         name: data.name,
       }),
     });
@@ -55,8 +54,7 @@ export default function UserEditor({ user }: UserProps) {
           id="name"
           placeholder="名前"
           defaultValue={user.name as string}
-          autoFocus
-          className="resize-none bg-transparent focus:outline-none font-bold border rounded-md px-2"
+          className="bg-transparent focus:outline-none font-semibold border rounded-md px-2"
           {...register("name")}
         />
         <button

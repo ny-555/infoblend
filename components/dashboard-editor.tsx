@@ -1,25 +1,24 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
-import EditorJS from "@editorjs/editorjs";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import Header from "@editorjs/header";
-import LinkTool from "@editorjs/link";
-import List from "@editorjs/list";
-import Code from "@editorjs/code";
+import EditorJS from "@editorjs/editorjs";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "./ui/button";
 import { Post } from "@prisma/client";
+import List from "@editorjs/list";
+import LinkTool from "@editorjs/link";
+import Code from "@editorjs/code";
 import { postPatchSchema } from "@/lib/validations/post";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 import { Icon } from "./icon";
 
-interface EditorProps {
+interface DashboardEditorProps {
   post: Pick<Post, "id" | "blogId" | "content" | "published">;
 }
 
-export default function Editor({ post }: EditorProps) {
+export default function DashboardEditor({ post }: DashboardEditorProps) {
   const ref = useRef<EditorJS | undefined>(null);
   const router = useRouter();
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -33,13 +32,12 @@ export default function Editor({ post }: EditorProps) {
       onReady() {
         ref.current = editor;
       },
-      placeholder: "ここにコメントを書くことができます",
+      placeholder: "ここにコメントを編集できます",
       inlineToolbar: true,
       data: body.content,
       tools: {
-        header: Header,
-        LinkTool: LinkTool,
         list: List,
+        LinkTool: LinkTool,
         code: Code,
       },
     });
@@ -92,7 +90,7 @@ export default function Editor({ post }: EditorProps) {
   return (
     <div className="max-w-3xl mx-auto">
       <form onSubmit={onSubmit}>
-        <div className="border rounded-xl p-8 space-y-2">
+        <div className="">
           <div id="editor" className="min-h-[100px]" />
 
           <div className="flex items-center justify-between">
