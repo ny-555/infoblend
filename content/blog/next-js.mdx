@@ -1,0 +1,81 @@
+---
+title: Next.jsについて
+description: Next.jsの基本的な解説
+image: /images/blog/nextjs-image.jpg
+date: "2025-03-16"
+---
+
+(以下はモックアップのため ChatGPT により生成された文章です。)
+
+Next.js は、**React**をベースにした人気のあるフレームワークで、サーバーサイドレンダリング (SSR) や静的サイト生成 (SSG) をはじめ、最新のウェブ開発機能が豊富に搭載されています。
+
+---
+
+## Next.js の主な特徴
+
+### 1. **ルーティング (Routing)**
+
+- `pages/` ディレクトリ内にファイルを作成するだけで、そのファイル名が URL パスとして自動的に割り当てられます。
+- 例：`pages/about.js` → `/about` でアクセス可能
+- `app/` ディレクトリを使用すると、**App Router** (新ルーティング) が利用でき、さらに柔軟なルーティングが可能です。
+
+### 2. **プリレンダリング (Pre-rendering)**
+
+Next.js はデフォルトでプリレンダリングを行い、ページの HTML を事前に生成します。2 種類の方法があります。
+
+- **静的サイト生成 (SSG)**：ビルド時に HTML を生成し、パフォーマンスに優れる。`getStaticProps` を使用。
+- **サーバーサイドレンダリング (SSR)**：リクエストごとに HTML を生成し、リアルタイムデータに適している。`getServerSideProps` を使用。
+
+### 3. **API ルート (API Routes)**
+
+- `pages/api/` ディレクトリ内に作成したファイルが API エンドポイントとして動作します。
+- 例：`pages/api/hello.js` → `/api/hello` でアクセス可能
+
+### 4. **イメージ最適化 (Image Optimization)**
+
+- `<Image>` コンポーネントを使用することで、画像の最適化、遅延読み込み (Lazy Loading) などが自動化されます。
+
+### 5. **インクリメンタル・スタティック・リジェネレーション (ISR)**
+
+- ビルド後に再度データを取得しつつ、静的ページの再生成が可能です。
+- リアルタイムのデータ更新が求められる状況に適しています。
+
+### 6. **TypeScript 対応**
+
+- `create-next-app` コマンドに `--typescript` を指定するだけで、TypeScript 環境が自動構築されます。
+
+### 7. **自動コード分割 (Automatic Code Splitting)**
+
+- 各ページは必要な JavaScript ファイルだけを読み込むため、初回ロードが高速化します。
+
+### 8. **ミドルウェア (Middleware)**
+
+- ルーティング時にリダイレクトや認証処理などのロジックを実行できます。
+
+---
+
+## Next.js v14 の新機能
+
+Next.js v14 では以下の機能が強化されています：
+
+✅ 新しい `Server Actions` でサーバーサイドの処理をシンプルに  
+✅ 高速なビルドと最適化されたバンドルサイズ  
+✅ `React Server Components` の正式対応
+
+---
+
+## Next.js の基本コマンド
+
+```bash
+# プロジェクト作成
+npx create-next-app@latest my-next-app
+
+# 開発サーバー起動
+npm run dev
+
+# ビルド
+npm run build
+
+# 本番サーバー起動
+npm start
+```

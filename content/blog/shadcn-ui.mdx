@@ -1,0 +1,69 @@
+---
+title: shadcn/uiについて
+description: shadcn/uiの基本的な解説
+image: /images/blog/shadcnui-image.jpg
+date: "2025-03-16"
+---
+
+(以下はモックアップのため ChatGPT により生成された文章です。)
+
+## **shadcn/ui の特徴**
+
+### 1. **UI コンポーネントの構成**
+
+- コンポーネントは TypeScript で記述されており、型安全性が高い
+- **Tailwind CSS**ベースなので、デザインのカスタマイズが容易
+- コンポーネントは「スニペット」としてプロジェクトに直接コピーする形式のため、完全にコントロール可能
+- **Radix UI**を活用したアクセシビリティ対応
+
+### 2. **コンポーネントの種類**
+
+以下のような豊富なコンポーネントが用意されています：
+
+- **ボタン (Button)**
+- **モーダル (Dialog)**
+- **入力フィールド (Input)**
+- **ドロップダウン (Dropdown)**
+- **通知 (Toast)**
+- **タブ (Tabs)**
+- その他、**40 種類以上のコンポーネント**が揃っています
+
+### 3. **インストールが簡単**
+
+シンプルな CLI コマンドで必要なコンポーネントだけをインストールできるのが特徴です。
+
+---
+
+## **インストール方法**
+
+Next.js v14 環境では以下の手順で導入できます。
+
+### 1. **shadcn/ui のインストール**
+
+```bash
+npx shadcn-ui@latest init
+```
+
+### 2. **必要なコンポーネントのインストール**
+
+例えば、ボタンを追加する場合は以下のコマンドを実行します：
+
+```bash
+npx shadcn-ui@latest add button
+```
+
+### 3. **Tailwind CSS の設定**
+
+tailwind.config.js に以下を追加して、shadcn/ui 用のカスタムスタイルを有効化します。
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
+  ],
+  plugins: [require("tailwindcss-animate")],
+};
+```
