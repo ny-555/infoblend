@@ -10,8 +10,10 @@ export default function BlogPage() {
     <div className="container mx-auto px-8 max-w-4xl py-6 lg:py-10">
       <div>
         <div className="space-y-4">
-          <h1 className="font-extrabold text-4xl lg:text-5xl">ブログ記事</h1>
-          <p className="text-muted-foreground">
+          <h1 className="font-extrabold text-4xl md:text-5xl lg:text-6xl">
+            ブログ記事
+          </h1>
+          <p className="text-md md:text-xl text-muted-foreground">
             開発者のブログの閲覧ができます。
             <br />
             MDXファイルをContentLayerで変換したものを掲載しています。

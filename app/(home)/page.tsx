@@ -9,9 +9,11 @@ export default function IndexPage() {
   return (
     <div className="space-y-10">
       <section className="container mx-auto px-8 pt-20 md:pt-24 lg:py-32 pb-8 md:pb-12">
-        <div className="mx-auto text-center flex flex-col items-center gap-8 max-w-[64rem]">
-          <h1 className="font-extrabold text-8xl lg:text-9xl">InfoBlend</h1>
-          <p className="text-muted-foreground text-lg md:text-xl leading-normal max-w-[42rem]">
+        <div className="mx-auto md:text-center flex flex-col items-center gap-8 max-w-[64rem]">
+          <h1 className="font-extrabold text-7xl md:text-8xl lg:text-9xl">
+            InfoBlend
+          </h1>
+          <p className="text-muted-foreground text-md md:text-xl leading-normal max-w-[42rem]">
             このアプリケーションは管理者のブログ記事の閲覧ができます。
             <br />
             ユーザーは自由にコメントを投稿することができます。
@@ -39,17 +41,17 @@ export default function IndexPage() {
         id="features"
         className="container mx-auto p-8 md:py-12 lg:py-24 bg-slate-50 rounded-xl space-y-8"
       >
-        <div className="mx-auto text-center space-y-8 max-w-[58rem]">
-          <h2 className="font-extrabold text-5xl lg:text-6xl">
+        <div className="mx-auto space-y-8 max-w-[58rem]">
+          <h2 className="text-center font-extrabold text-4xl md:text-5xl lg:text-6xl">
             サービスの特徴
           </h2>
-          <p className="text-muted-foreground text-md md:text-lg sm:leading-7">
+          <p className="md:text-center text-muted-foreground text-md md:text-xl sm:leading-7">
             このプロジェクトは以下の技術スタック、サービスを利用して作られています。
           </p>
         </div>
         <div className="mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-[64rem]">
           <div className="bg-background border p-2 rounded-xl">
-            <div className="flex flex-col justify-center p-6 h-[180px]">
+            <div className="flex flex-col justify-center p-6 h-[200px] md:h-[220px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="45"
@@ -62,15 +64,15 @@ export default function IndexPage() {
                 />
               </svg>
               <div className="space-y-2">
-                <h3 className="font-bold">Next.js</h3>
-                <p className="text-sm text-muted-foreground">
-                  SSRやSSGを利用し表示速度を高速化、SEOを強化します。
+                <h3 className="text-md font-bold">Next.js</h3>
+                <p className="text-muted-foreground">
+                  SSRやSSGを利用し表示速度を高速化、SEOを強化。
                 </p>
               </div>
             </div>
           </div>
           <div className="bg-background border p-2 rounded-xl">
-            <div className="flex flex-col justify-center p-6 h-[180px]">
+            <div className="flex flex-col justify-center p-6 h-[200px] md:h-[220px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="45"
@@ -83,15 +85,15 @@ export default function IndexPage() {
                 />
               </svg>
               <div className="space-y-2">
-                <h3 className="font-bold">Tailwind CSS</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="text-md font-bold">Tailwind CSS</h3>
+                <p className="text-muted-foreground">
                   ユーティリティクラスを利用し、オリジナリティの高いデザインを作成。
                 </p>
               </div>
             </div>
           </div>
           <div className="bg-background border p-2 rounded-xl">
-            <div className="flex flex-col justify-center p-6 h-[180px]">
+            <div className="flex flex-col justify-center p-6 h-[200px] md:h-[220px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="45"
@@ -104,15 +106,15 @@ export default function IndexPage() {
                 />
               </svg>
               <div className="space-y-2">
-                <h3 className="font-bold">Shadcn/ui</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="text-md font-bold">Shadcn/ui</h3>
+                <p className="text-muted-foreground">
                   柔軟性、カスタマイズ性に優れたUIコンポーネントを利用可能。
                 </p>
               </div>
             </div>
           </div>
           <div className="bg-background border p-2 rounded-xl">
-            <div className="flex flex-col justify-center p-6 h-[180px]">
+            <div className="flex flex-col justify-center p-6 h-[200px] md:h-[220px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="45"
@@ -125,15 +127,15 @@ export default function IndexPage() {
                 />
               </svg>
               <div className="space-y-2">
-                <h3 className="font-bold">Prisma</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="text-md font-bold">Prisma</h3>
+                <p className="text-muted-foreground">
                   データベースとのやり取り、クエリの生成などを効率化するORMツール。
                 </p>
               </div>
             </div>
           </div>
           <div className="bg-background border p-2 rounded-xl">
-            <div className="flex flex-col justify-center p-6 h-[180px]">
+            <div className="flex flex-col justify-center p-6 h-[200px] md:h-[220px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="45"
@@ -143,15 +145,15 @@ export default function IndexPage() {
                 <path d="M220.412 0h-92.415l28.562 89.006h92.416l-74.77 53.077l28.57 89.511c48.128-35.06 63.854-88.12 46.208-142.588L220.413 0ZM7.018 89.006h92.416L127.997 0H35.589L7.019 89.006c-17.655 54.468-1.92 107.529 46.207 142.588l28.563-89.51l-74.77-53.078Zm46.208 142.588l74.77 52.97l74.77-52.97l-74.77-53.847l-74.77 53.847Z" />
               </svg>
               <div className="space-y-2">
-                <h3 className="font-bold">NextAuth</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="text-md font-bold">NextAuth</h3>
+                <p className="text-muted-foreground">
                   Next.jsにおいて、認証やセッション管理を簡単に行うことが可能。
                 </p>
               </div>
             </div>
           </div>
           <div className="bg-background border p-2 rounded-xl">
-            <div className="flex flex-col justify-center p-6 h-[180px]">
+            <div className="flex flex-col justify-center p-6 h-[200px] md:h-[220px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="45"
@@ -164,16 +166,16 @@ export default function IndexPage() {
                 />
               </svg>
               <div className="space-y-2">
-                <h3 className="font-bold">Supabase</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="text-md font-bold">Supabase</h3>
+                <p className="text-muted-foreground">
                   PostgreSQLをベースにしたオープンソースのバックエンドサービス。
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <div className="mx-auto text-center">
-          <p className="text-muted-foreground md:text-lg sm:leading-7">
+        <div className="mx-auto md:text-center">
+          <p className="text-muted-foreground text-md md:text-xl sm:leading-7">
             InfoBlendはログインするとコメントの投稿ができるようになります。
           </p>
         </div>
@@ -181,13 +183,15 @@ export default function IndexPage() {
 
       <section id="contact" className="container mx-auto p-8 md:py-12 lg:py-24">
         <div className="max-w-[58rem] mx-auto text-center flex flex-col gap-6">
-          <h2 className="font-extrabold text-5xl lg:text-6xl">Contact Me</h2>
-          <p className="text-muted-foreground text-md md:text-lg sm:leading-7">
+          <h2 className="font-extrabold text-4xl md:text-5xl lg:text-6xl">
+            Contact Me
+          </h2>
+          <p className="text-muted-foreground text-md md:text-xl sm:leading-7">
             ご連絡は以下のリンクよりお願いします。
           </p>
           <a
             href="mailto:nskw012345@gmail.com"
-            className="text-lg underline underline-offset-4"
+            className="text-md md:text-xl underline underline-offset-4"
           >
             MAIL
           </a>
