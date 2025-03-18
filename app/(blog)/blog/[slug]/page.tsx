@@ -89,7 +89,7 @@ export default async function PostPage({
           {post.date && (
             <time>Published on {format(post.date, "yyyy/MM/dd")}</time>
           )}
-          <h1 className="mt-2 font-extrabold text-4xl lg:text-5xl leading-tight">
+          <h1 className="mt-2 font-extrabold text-4xl md:text-5xl lg:text-5xl leading-tight">
             {post.title}
           </h1>
         </div>
@@ -116,7 +116,7 @@ export default async function PostPage({
           </div>
         ) : (
           <div className="divide-y border rounded-xl px-6 py-4">
-            コメントがありません。
+            <p className="text-md md:text-lg">コメントがありません。</p>
           </div>
         )}
       </div>

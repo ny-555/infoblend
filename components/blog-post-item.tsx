@@ -51,8 +51,8 @@ export default async function BlogPostItem({ post }: BlogPostItemProps) {
             />
           )}
 
-          <div className="font-semibold">{post.author.name}</div>
-          <p className="text-sm text-muted-foreground">
+          <div className="font-semibold md:text-lg">{post.author.name}</div>
+          <p className="text-muted-foreground">
             {format(post.createdAt, "yyyy-MM-dd")}
           </p>
         </div>

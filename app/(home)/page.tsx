@@ -190,7 +190,7 @@ export default function IndexPage() {
             ご連絡は以下のリンクよりお願いします。
           </p>
           <a
-            href="mailto:nskw012345@gmail.com"
+            href="mailto:nywork.fb1234@gmail.com"
             className="text-md md:text-xl underline underline-offset-4"
           >
             MAIL
