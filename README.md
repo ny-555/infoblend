@@ -6,7 +6,7 @@
 
 ## サービスURL
 
-[https://info-blend.vercel.app](https://info-blend.vercel.app/)
+[InfoBlend](https://info-blend.vercel.app/)
 
 ## 使用技術一覧
 
