@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**InfoBlend /  ブログコミュニケーションサービス**
 
-## Getting Started
+**サービス概要**
 
-First, run the development server:
+管理者の投稿するブログ記事の閲覧できるサービス。ユーザーは自由にコメントを投稿することができます。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**▼ サービスURL**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[https://info-blend.vercel.app](https://info-blend.vercel.app/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**使用技術一覧**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**フロントエンド:** Next.js 14.2.24 /  React 18.3.1 / TypeScript 5.3.3
 
-## Learn More
+- コード解析: ESLint
+- フォーマッター: Prettier
+- CSSフレームワーク: Tailwind CSS / shadcn/ui
+- 主要パッケージ: prisma 6.4.1 / Zod 3.24.2 // Contentlayer2 0.5.4 / Editor.js 4.0.5
 
-To learn more about Next.js, take a look at the following resources:
+**インフラ:** vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**認証:** NextAuth.js 4.24.11 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**主要対応一覧**
 
-## Deploy on Vercel
+**ユーザー向け**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**機能**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Googleアカウントを利用したユーザー登録 / ログイン機能
+- GitHubアカウントを利用したユーザー登録 / ログイン機能
+- ユーザー情報変更機能
+- アカウント削除機能
+- 管理者ブログの取得 / 閲覧
+- ブログへのコメント閲覧機能
+- ブログへのコメント投稿機能（ログイン時のみ利用可能）
+
+**画面**
+
+- トースト表示
+- ローディングアイコン表示
+- 404 / 500エラーのカスタム画面
+- レスポンシブデザイン
+
+**非ユーザー向け**
+
+**システム**
+
+- Next.jsのSSR / CSR の使い分けによるサービスの高速化
+
+**テスト**
+
+- クロスブラウザテスト
+    - PC
+        - Windows10 / 11: Google Chrome / Firefox / Microsoft Edge
+        - Mac: Google Chrome / Firefox / Safari
+    - スマートフォン
+        - Android: Google Chrome
+        - iOS: Google Chrome / Safari
+-
