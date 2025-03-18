@@ -69,7 +69,7 @@ export default async function DashboardPage() {
         </Link>
       </div>
       <div>
-        <p className="text-lg font-semibold ml-2 mb-1">あなたのコメント</p>
+        <p className="text-md md:text-lg ml-2 mb-1">あなたのコメント</p>
         {posts.length ? (
           <div className="divide-y border rounded-xl">
             {posts.map((post) => (

@@ -38,7 +38,7 @@ export default async function DashboardPostItem({
       <div className="space-y-2">
         <Link
           href={`/blog/${post.blogId}`}
-          className="bg-secondary px-3 py-1 rounded-full font-semibold"
+          className="bg-secondary px-2 py-1 rounded-full font-semibold"
         >
           {post.blogId}
         </Link>
@@ -47,8 +47,8 @@ export default async function DashboardPostItem({
             <Image
               src={post.author.image as string}
               alt="profile"
-              width={30}
-              height={30}
+              width={35}
+              height={35}
               className="rounded-full"
             />
           ) : (

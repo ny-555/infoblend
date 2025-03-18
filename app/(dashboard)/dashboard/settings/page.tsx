@@ -20,9 +20,9 @@ export default async function SettingsPage() {
         <></>
       </DashboardHeader>
       <div>
-        <h1 className="font-semibold">ユーザー名の編集</h1>
+        <h1 className="text-md ml-2 mb-1">ユーザー名の編集</h1>
         <div className="flex items-center justify-between p-4 border rounded-xl max-w-md">
-          <div>
+          <div className="hidden sm:flex">
             {typeof session?.user.image === "string" ? (
               <Image
                 src={session.user.image}
@@ -50,7 +50,7 @@ export default async function SettingsPage() {
       </div>
 
       <div>
-        <h1 className="font-semibold">アカウントの削除</h1>
+        <h1 className="text-md ml-2 mb-1">アカウントの削除</h1>
         <div className="flex items-center justify-between gap-3 p-4 border rounded-xl max-w-md">
           アカウントを削除しますか？
           <UserDelete user={session.user} />
