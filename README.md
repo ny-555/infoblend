@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# InfoBlend / ブログコミュニケーションサービス
 
-## Getting Started
+## サービス概要
 
-First, run the development server:
+私は個人でWebエンジニアリングを学ぶ際に、多くの技術ブログから学びを得ました。その際、「継続した学習」と「知識の共有」の文化に感銘を受けました。InfoBlendは管理者の投稿する技術ブログを閲覧できるサービスです。ユーザーは自由にコメントを投稿することができ、コミュニケーションをとることができます。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## サービスURL
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[](https://info-blend.vercel.app/)  
+レスポンシブデザインに対応しているので、PC、スマートフォンなどお好きなデバイスで快適にご覧いただけます。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 使用技術一覧
 
-## Learn More
+**フロントエンド:** Next.js 14.2.24 / React 18.3.1 / TypeScript 5.3.3
 
-To learn more about Next.js, take a look at the following resources:
+- コード解析: ESLint
+- フォーマッター: Prettier
+- CSSフレームワーク: Tailwind CSS / shadcn/ui
+- 主要パッケージ: prisma 6.4.1 / Zod 3.24.2 // Contentlayer2 0.5.4 / Editor.js 4.0.5
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**インフラ:** vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**認証:** NextAuth.js 4.24.11
 
-## Deploy on Vercel
+## 主要対応一覧
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ユーザー向け
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**機能**
+
+- Googleアカウントを利用したユーザー登録 / ログイン機能
+- GitHubアカウントを利用したユーザー登録 / ログイン機能
+- アカウント情報変更機能(現在は名前のみ)
+- アカウント削除機能
+- 管理者ブログの取得 / 閲覧
+- ブログへのコメント閲覧機能
+- ブログへのコメント投稿機能（ログイン時のみ利用可能）
+
+**画面**
+
+- トースト表示
+- ローディングアイコン表示
+- 404 / 500エラーのカスタム画面
+- レスポンシブデザイン
+
+### 非ユーザー向け
+
+**システム**
+
+- Next.jsのSSR / CSRの使い分けによるサービスの高速化、検索エンジン対策(SEO)の強化
+
+**テスト**
+
+- クロスブラウザテスト
+    - PC
+        - Windows10 / 11: Google Chrome / Firefox / Microsoft Edge
+        - Mac: Google Chrome / Firefox / Safari
+    - スマートフォン
+        - Android: Google Chrome
+        - iOS: Google Chrome / Safari
