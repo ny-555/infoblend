@@ -8,7 +8,7 @@ InfoBlendは管理者の投稿する技術ブログを閲覧できるサービ�
 
 ## サービスURL
 
-[](https://info-blend.vercel.app/)  
+[InfoBlend](https://info-blend.vercel.app/)  
 レスポンシブデザインに対応しているので、PC、スマートフォンなどお好きなデバイスで快適にご覧いただけます。
 
 ## 使用技術一覧
