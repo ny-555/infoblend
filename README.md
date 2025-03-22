@@ -9,7 +9,8 @@ InfoBlendは管理者の投稿する技術ブログを閲覧できるサービ�
 ## サービスURL
 
 [InfoBlend](https://info-blend.vercel.app/)  
-レスポンシブデザインに対応しているので、PC、スマートフォンなどお好きなデバイスで快適にご覧いただけます。
+レスポンシブデザインに対応しているので、PC、スマートフォンなどお好きなデバイスで快適にご覧いただけます。  
+
 
 ## 使用技術一覧
 
@@ -60,3 +61,7 @@ InfoBlendは管理者の投稿する技術ブログを閲覧できるサービ�
     - スマートフォン
         - Android: Google Chrome
         - iOS: Google Chrome / Safari
+
+## ER図
+![erzu](https://github.com/user-attachments/assets/8c007cf3-0318-4234-9caf-1cf4775cdd97)
+
