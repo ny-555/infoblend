@@ -45,7 +45,7 @@ export default async function EditorPage({ params }: EditorProps) {
   }
 
   return (
-    <div className="border rounded-xl p-4 space-y-4">
+    <div className="border rounded-xl p-4 space-y-4 max-w-2xl mx-auto">
       <Link
         href={`/blog/${post.blogId}`}
         className="bg-secondary px-3 py-1 rounded-full font-semibold"
