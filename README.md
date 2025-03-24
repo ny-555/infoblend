@@ -1,5 +1,7 @@
 # InfoBlend / ブログコミュニケーションサービス
 
+<img width="950" alt="siteImage" src="https://github.com/user-attachments/assets/7eca8df9-567f-4ab5-9980-4b317cd93bd8" />
+
 ## サービス概要
 
 私は個人でWebエンジニアリングを学ぶ際に、多くの技術ブログから学びを得ました。その際、「知識の獲得と共有」の文化に感銘を受けました。  
