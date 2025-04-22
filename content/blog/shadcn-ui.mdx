@@ -5,7 +5,9 @@ image: /images/blog/shadcnui-image.jpg
 date: "2025-04-20"
 ---
 
-(以下はモックアップのため ChatGPT により生成された文章です。)
+(以下はモックアップのため ChatGPT により生成された文章を基にしています)
+
+shadcn/ui とは Vercel に所属するエンジニアによってつくられたカスタマイズ性に優れた UI コンポーネントの集まりです。Tailwind CSS をベースに構築されており、モダンで柔軟なデザインを提供します。
 
 ## **shadcn/ui の特徴**
 
@@ -14,7 +16,6 @@ date: "2025-04-20"
 - コンポーネントは TypeScript で記述されており、型安全性が高い
 - **Tailwind CSS**ベースなので、デザインのカスタマイズが容易
 - コンポーネントは「スニペット」としてプロジェクトに直接コピーする形式のため、完全にコントロール可能
-- **Radix UI**を活用したアクセシビリティ対応
 
 ### 2. **コンポーネントの種類**
 
@@ -67,3 +68,55 @@ module.exports = {
   plugins: [require("tailwindcss-animate")],
 };
 ```
+
+---
+
+## 使用例
+
+例えば、ボタンコンポーネントの利用は次のように行います：
+
+```jsx
+import { Button } from "@/components/ui/button";
+
+export default function Example() {
+  return (
+    <div className="p-4">
+      <Button variant="default">デフォルトボタン</Button>
+      <Button variant="outline" className="ml-4">
+        アウトラインボタン
+      </Button>
+    </div>
+  );
+}
+```
+
+---
+
+## カスタマイズ
+
+shadcn/ui のコンポーネントは、Tailwind CSS のクラスを直接編集することで自由にカスタマイズできます。例えば、button.tsx ファイルで次のように修正できます：
+
+```jsx
+import { cn } from "@/lib/utils";
+
+export function Button({ className, ...props }) {
+  return (
+    <button
+      className={cn(
+        "bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-xl shadow-md",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+```
+
+---
+
+## shadcn/ui のメリット
+
+✅ TailwindCSS ベースで直感的なスタイリング  
+✅ CLI を活用して柔軟に必要なコンポーネントを導入  
+✅ コンポーネントがプロジェクト内に組み込まれるので完全にカスタマイズ可能  
+✅ デザインと機能のバランスが優れ、Next.js とも相性がよい
