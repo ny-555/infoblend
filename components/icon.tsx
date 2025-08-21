@@ -72,7 +72,6 @@ export const Icon = {
       width="30"
       height="30"
       viewBox="0 0 48 48"
-      className="mr-2"
       {...props}
     >
       <path
